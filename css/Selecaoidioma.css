@@ -1,0 +1,107 @@
+/* Reset básico e configuração da fonte */
+body, html {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Centraliza o container da página */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total da janela de visualização */
+  padding: 2rem;
+  background-color: #f4f4f4; /* Cor de fundo suave */
+}
+
+/* Estiliza a barra superior */
+.top-bar {
+  width: 100%;
+  background-color: #4f9cf9; /* Código hexadecimal corrigido */
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Estiliza a marca */
+.brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Estiliza o conteúdo */
+.content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Estiliza o título */
+h1 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+/* Wrapper do select */
+.select-wrapper {
+  position: relative;
+}
+
+/* Estiliza o select */
+select {
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: url('icons/arrow-down.png') no-repeat right center; /* Ícone de seta para o dropdown */
+  background-size: 20px;
+  appearance: none; /* Remove o estilo padrão do dropdown */
+  -webkit-appearance: none; /* Remove o estilo padrão do dropdown no Safari */
+  background-image: none; /* Inicialmente remove a imagem de fundo */
+}
+
+/* Adiciona bandeiras como imagens de fundo para opções */
+select option {
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 30px; /* Espaço para a imagem da bandeira */
+}
+
+/* Estiliza o botão */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  transition: background-color 0.3s ease; /* Transição suave para o hover */
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries para ajustar o layout em diferentes tamanhos de tela */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  /* Adicione mais ajustes de layout conforme necessário */
+}

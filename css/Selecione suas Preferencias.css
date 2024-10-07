@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('BackgroundFundo.png'); /* Altere para sua imagem */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: #4f9cf9; /* Azul para a navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  height: 70px; /* Ajusta a logo para que se encaixe perfeitamente */
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 100px; /* Espaço abaixo da navbar fixa */
+}
+
+.instruction-text {
+  margin: 20px 0;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #000;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%; /* Aumenta o tamanho da área de escolha */
+  margin-top: 20px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Distribui melhor os itens */
+  gap: 30px; /* Aumenta o espaçamento entre os itens */
+  width: 100%; /* Usa toda a largura do container */
+}
+
+.content-item {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.content-item img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.content-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.content-item.selected img {
+  border: 3px solid #4f9cf9;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: black;
+}
+
+#next-step {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  transition: background-color 0.3s;
+}
+
+#next-step.enabled {
+  cursor: pointer;
+  background-color: #0056b3;
+}
+
+#next-step.enabled:hover {
+  background-color: #004099;
+}
+
+.content-item img {
+  width: 200px; /* Largura fixa */
+  height: 200px; /* Altura fixa para garantir que seja quadrada */
+  object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
