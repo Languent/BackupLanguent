@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #4169E1;
+}
+
+section, footer {
+    padding: 54px 0;
+}
+
+h3 {
+    font-size: 50px;
+}
+
+p {
+    color: #0000009c;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+header {
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav ul a {
+    color: white;
+    margin: 0 25px;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: block;
+}
+
+nav ul a:not(.btn):after {
+    content: "";
+    background-color: #4f9cf9;
+    height: 3px;
+    width: 0%;
+    display: block;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+nav ul a:hover::after {
+    width: 100%;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+}
+
+.banner-text {
+    margin: 150px;
+    text-align: center;
+    padding: 0 90px;
+}
+
+.banner .banner-text h1 {
+    font-size: 96px;
+    color: white;
+}
+
+.banner .banner-text p {
+    font-size: 25px;
+    color: #ffffffb7;
+    font-weight: lighter;
+    margin: 18px 0;
+}
+
+.faca-mais {
+    background-color: #eff6fc;
+}
+
+.faca-mais .container {
+    display: flex;
+    align-items: center;
+}
+
+.faca-mais .faca-mais-text {
+    width: 50%;
+    padding: 0 40px;
+}
+
+.faca-mais .faca-mais-text h3 {
+    font-size: 56px;
+    color: #4169E1;
+}
+
+.faca-mais .faca-mais-text p {
+    margin: 5px 0 10px 0;
+    font-size: 18px;
+}
+
+.faca-mais .faca-mais-text ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.faca-mais .faca-mais-text ul li {
+    color: #0000009c;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.faca-mais .faca-mais-img {
+    width: 50%;
+}
+
+.faca-mais .faca-mais-img img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    background-color: #2e4d7b;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+.logoIMG {
+    display: flex;
+    justify-content: left;
+    max-width: 75%;
+    height: auto;
+}
