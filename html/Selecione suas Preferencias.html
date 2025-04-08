@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Selecione suas Preferencias.css">
+  <script src="Selecione suas Preferencias.js" defer></script>
+  <title>Seleção de Preferências</title>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.jfif" alt="Logo do App" class="logo-img">
+    </div>
+  </header>
+
+  <main>
+    <p class="instruction-text">Escolha pelo menos 3 categorias de sua preferência:</p>
+
+    <div class="container">
+      <div class="content-grid">
+        <!-- Categorias de conteúdo -->
+        <div class="content-item" data-category="1">
+          <img src="esportes.png" alt="Esportes">
+          <div class="caption">Esportes</div>
+        </div>
+        <div class="content-item" data-category="2">
+          <img src="cinema.png" alt="Cinema">
+          <div class="caption">Cinema</div>
+        </div>
+        <div class="content-item" data-category="3">
+          <img src="musica.png" alt="Música">
+          <div class="caption">Música</div>
+        </div>
+        <div class="content-item" data-category="4">
+          <img src="tecnologia.png" alt="Tecnologia">
+          <div class="caption">Tecnologia</div>
+        </div>
+        <div class="content-item" data-category="5">
+          <img src="gastronomia.png" alt="Gastronomia">
+          <div class="caption">Gastronomia</div>
+        </div>
+        <div class="content-item" data-category="6">
+          <img src="literatura.png" alt="Literatura">
+          <div class="caption">Literatura</div>
+        </div>
+        <div class="content-item" data-category="7">
+          <img src="arte.png" alt="Arte">
+          <div class="caption">Arte</div>
+        </div>
+      </div>
+
+      <!-- Formulário para envio das preferências -->
+      <form id="preferencesForm" method="POST" action="Selecione suas Preferencias.php">
+        <input type="hidden" name="selectedCategories" id="selectedCategoriesInput">
+        <button id="next-step" type="submit" disabled>Próximo</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
