@@ -8,6 +8,6 @@ session_unset();
 session_destroy();
 
 // Redireciona para a página inicial e finaliza o script
-header('Location: index.html');
+header('Location: ../html/index.html');
 exit;
 ?>

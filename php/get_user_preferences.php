@@ -1,5 +1,8 @@
 <?php
-session_start(); 
+
+header('Content-Type: application/json');
+
+session_start();
 
 // Verifica se o usuário está autenticado e possui um id_usuario na sessão
 if (!isset($_SESSION['id_usuario'])) {
@@ -10,21 +13,18 @@ if (!isset($_SESSION['id_usuario'])) {
 // Obtém o id_usuario da sessão
 $id_usuario = $_SESSION['id_usuario'];
 
-// Conexão ao banco de dados
-$host = 'sql205.infinityfree.com';
-$user = 'if0_37044542'; // Substitua pelo usuário correto do banco
-$password = 'SenhaLanguent'; 
-$dbname = 'if0_37044542_languent';
+// Incluir o arquivo de conexão
+require_once 'conection.php';
 
-$conn = new mysqli($host, $user, $password, $dbname);
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
+// Verifica se a conexão foi bem-sucedida (opcional, mas recomendado)
+if (!$conn) {
+    die("Erro de conexão: " . mysqli_connect_error());
 }
 
 // Obtém o idioma preferido do usuário
-$sql_lingua = "SELECT l.lingua FROM tb_usuario u 
-               JOIN tb_lingua l ON u.id_lingua = l.id_lingua 
-               WHERE u.id_usuario = ?";
+$sql_lingua = "SELECT l.lingua FROM tb_usuario u
+                    JOIN tb_lingua l ON u.id_lingua = l.id_lingua
+                    WHERE u.id_usuario = ?";
 $stmt = $conn->prepare($sql_lingua);
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
@@ -33,9 +33,9 @@ $stmt->fetch();
 $stmt->close();
 
 // Obtém as preferências do usuário
-$sql_preferencias = "SELECT p.preferencia FROM tb_usuario_preferencia up 
-                     JOIN tb_preferencias p ON up.id_preferencia = p.id_preferencia 
-                     WHERE up.id_usuario = ?";
+$sql_preferencias = "SELECT p.preferencia FROM tb_usuario_preferencia up
+                                JOIN tb_preferencias p ON up.id_preferencia = p.id_preferencia
+                                WHERE up.id_usuario = ?";
 $stmt = $conn->prepare($sql_preferencias);
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
@@ -50,6 +50,7 @@ $conn->close();
 
 // Retorna as preferências e o idioma em JSON
 echo json_encode([
-    'idioma' => trim($lingua), 
+    'idioma' => trim($lingua),
     'preferencias' => $preferencias
 ]);
+?>

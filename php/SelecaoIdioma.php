@@ -1,4 +1,5 @@
 <?php
+
 // Inicia uma sessão se ainda não estiver iniciada
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -12,19 +13,14 @@ if (!isset($_SESSION['id_usuario'])) {
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_usuario = $_SESSION['id_usuario'];
-    
+
     // Captura o valor do idioma e sanitiza
     $id_lingua = filter_var($_POST['idioma'], FILTER_SANITIZE_NUMBER_INT);
 
-    // Conexão com o banco de dados
-    $dbhost = "sql205.infinityfree.com";
-    $dbuser = "if0_37044542";
-    $dbpass = "SenhaLanguent";
-    $dbname = "if0_37044542_languent";
+    // Incluir o arquivo de conexão
+    require_once 'conection.php';
 
-    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-
-    // Verifica a conexão
+    // Verifica a conexão (opcional, mas recomendado)
     if (!$conn) {
         die("Erro: Conexão com o banco de dados falhou! " . mysqli_connect_error());
     }
@@ -46,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
-        header('Location: Selecione suas Preferencias.html ');
+        header('Location: ../html/SelecioneSuasPreferencias.html');
         exit;
     } else {
         echo "Erro: Falha ao atualizar o idioma.";

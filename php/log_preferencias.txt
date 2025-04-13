@@ -1,0 +1,6 @@
+Array
+(
+    [0] => sports
+    [1] => movies
+    [2] => music
+)
