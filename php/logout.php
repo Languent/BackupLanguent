@@ -1,8 +1,13 @@
 <?php
+session_start();
 
-  // Destruir a sessão
-  session_destroy();
+// Destrói todas as variáveis de sessão
+session_unset();
 
-  // Redirecionar para a página de login ou página inicial
-  header('Location: login.html'); // ou paginaInicial.php
+// Destrói a sessão
+session_destroy();
+
+// Redireciona para a página inicial e finaliza o script
+header('Location: index.html');
+exit;
 ?>
