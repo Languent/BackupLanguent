@@ -1,10 +1,10 @@
 <?php
 
 // Conexão com o banco de dados
-$dbhost = "localhost";
-$dbuser = "id21956605_languent";
-$dbpass = "L@nguent123";
-$dbname = "id21956605_bdtestelanguent";
+$dbhost = "sql205.infinityfree.com";
+$dbuser = "if0_37044542";
+$dbpass = "SenhaLanguent";
+$dbname = "if0_37044542_languent";
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
@@ -48,7 +48,8 @@ exit;
 
 } else {
   // Usuário não encontrado, exibir mensagem de erro
-  echo "Email ou Senha inválidos.";
+ echo "Email ou Senha inválidos retorne para a página anterior e tente novamente .";
+
 }
 
 mysqli_close($conn);
