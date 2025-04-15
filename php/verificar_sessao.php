@@ -36,20 +36,22 @@ if (isset($_SESSION["id_usuario"])) {
 
     $tem_preferencia = ($count_preferencia > 0);
 
-    // Verificar se o usuário pode avançar para home.html
+    $resposta = ['sessao_ativa' => true];
+
     if ($tem_lingua && $tem_preferencia) {
-        echo json_encode(['pode_avancar' => true]);
+        $resposta['pode_avancar'] = true;
     } else {
-        $erros = [];
+        $resposta['pode_avancar'] = false;
+        $resposta['erros'] = [];
         if (!$tem_lingua) {
-            $erros[] = 'idioma_nao_definido';
+            $resposta['erros'][] = 'idioma_nao_definido';
         }
         if (!$tem_preferencia) {
-            $erros[] = 'preferencias_nao_definidas';
+            $resposta['erros'][] = 'preferencias_nao_definidas';
         }
-        echo json_encode(['pode_avancar' => false, 'erros' => $erros]);
     }
 
+    echo json_encode($resposta);
     mysqli_close($conn);
 
 } else {

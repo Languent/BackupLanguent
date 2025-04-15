@@ -30,7 +30,7 @@ function verificarSessaoERedirecionar() {
                 }
             } else {
                 // Redireciona para a página de login se a sessão não estiver ativa
-                alert("Sessão não encontrada. Faça login novamente.");
+                alert("Sessão não encontrada. Realize o login para prosseguir.");
                 window.location.href = "../html/login.html";
             }
         })

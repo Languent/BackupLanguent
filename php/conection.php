@@ -6,7 +6,7 @@ $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 $dbname = "if0_37044542_languent";
-$dbport = 3312;
+$dbport = 3307;
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname, $dbport);
 
