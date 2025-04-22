@@ -36,18 +36,34 @@ if (isset($_SESSION["id_usuario"])) {
 
     $tem_preferencia = ($count_preferencia > 0);
 
+    // Resposta padrão para sessão ativa
     $resposta = ['sessao_ativa' => true];
 
+    // Verifica se o usuário já tem idioma e preferências definidas
     if ($tem_lingua && $tem_preferencia) {
-        $resposta['pode_avancar'] = true;
+        $resposta['pode_avancar'] = true; // O usuário pode avançar normalmente
     } else {
+        // Se não tiver idioma ou preferências definidas, o usuário não pode avançar
         $resposta['pode_avancar'] = false;
         $resposta['erros'] = [];
+
+        // Se o idioma não estiver definido, ele precisa selecionar um
         if (!$tem_lingua) {
             $resposta['erros'][] = 'idioma_nao_definido';
         }
+
+        // Se as preferências não estiverem definidas, ele precisa selecionar preferências
         if (!$tem_preferencia) {
-            $resposta['erros'][] = 'preferencias_nao_definidas';
+            // Apenas marque o erro se o usuário já tiver selecionado idioma
+            if ($tem_lingua) {
+                $resposta['erros'][] = 'preferencias_nao_definidas';
+            }
+        }
+
+        // Se o usuário é novo (não tem idioma nem preferências), ele será direcionado sem erro
+        if (!$tem_lingua && !$tem_preferencia) {
+            $resposta['pode_avancar'] = true; // Permitirá que o usuário avance para escolher preferências
+            $resposta['erros'] = []; // Não precisa de mensagem de erro para usuários novos
         }
     }
 

@@ -45,11 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                       window.location.href = '../html/Selecaoidioma.html';
                       return;
                   }
-                  if (data.erros.includes('preferencias_nao_definidas')) {
-                      alert("Você precisa definir suas preferências antes de continuar.");
-                      window.location.href = '../html/SelecioneSuasPreferencias.html';
-                      return;
-                  }
+              
               }
               // Se sessão ativa e pode avançar: não faz nada (usuário segue normalmente)
           } else {
@@ -64,3 +60,4 @@ document.addEventListener('DOMContentLoaded', function () {
           window.location.href = '../html/login.html';
       });
 });
+

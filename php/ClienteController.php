@@ -1,21 +1,30 @@
 <?php
-require_once 'SalvarCliente.php';
-require_once 'conection.php'; // Incluir o arquivo de conexão
+require_once 'conection.php';
+require_once 'ClienteModel.php';
 
-$db = $conn; // Utiliza a conexão já estabelecida em conection.php
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome  = trim($_POST['nome']);
+    $email = trim($_POST['email']);
     $senha = $_POST['senha'];
 
-    $clienteModel = new ClienteModel($db);
-
-    if ($clienteModel->salvarCliente($nome, $email, $senha)) {
-        echo "Dados Salvos com Sucesso !!! Retorne para a página de login para prosseguir. ";
-    } else {
-        echo "Erro ao salvar os dados. Tente novamente.";
+    if (strlen($senha) < 7) {
+        $mensagem = urlencode("A senha deve ter no mínimo 7 caracteres.");
+        header("Location: ../html/login.html?mensagem=$mensagem");
+        exit;
     }
+
+    $clienteModel = new ClienteModel($conn);
+    $resultado = $clienteModel->salvarCliente($nome, $email, $senha);
+
+    if ($resultado === "duplicado") {
+        $mensagem = urlencode("Este e-mail já está cadastrado. Faça login ou use outro.");
+    } elseif ($resultado === true) {
+        $mensagem = urlencode("Cadastro realizado com sucesso!");
+    } else {
+        $mensagem = urlencode("Erro ao cadastrar usuário. Tente novamente.");
+    }
+
+    header("Location: ../html/login.html?mensagem=$mensagem");
+    exit;
 }
 ?>
-

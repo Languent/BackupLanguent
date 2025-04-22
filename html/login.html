@@ -19,14 +19,20 @@
 				<p class="description description-primary">Já tem uma conta?</p>
 				<p class="description description-primary">Clique aqui para fazer o login</p>
 				<button id="signin" class="btn btn-primary">entrar</button>
-			</div>    
+			</div>
 			<div class="second-column">
 				<h2 class="title title-second">Criar Conta</h2>
 				<div class="social-media">
 					<ul class="list-social-media">
-						<a class="link-social-media" href="#"><li class="item-social-media"><i class="fab fa-facebook-f"></i></li></a>
-						<a class="link-social-media" href="#"><li class="item-social-media"><i class="fab fa-google-plus-g"></i></li></a>
-						<a class="link-social-media" href="#"><li class="item-social-media"><i class="fab fa-linkedin-in"></i></li></a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media"><i class="fab fa-facebook-f"></i></li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media"><i class="fab fa-google-plus-g"></i></li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media"><i class="fab fa-linkedin-in"></i></li>
+						</a>
 					</ul>
 				</div>
 				<p class="description description-second">ou use suas credenciais de e-mail:</p>
@@ -37,7 +43,7 @@
 					</label>
 					<label class="label-input">
 						<i class="far fa-envelope icon-modify"></i>
-						<input type="email" placeholder="Email" name="email" required>
+						<input type="email" placeholder="Email" name="email" id="email" required>
 					</label>
 					<label class="label-input">
 						<i class="fas fa-lock icon-modify"></i>
@@ -59,9 +65,15 @@
 				<h2 class="title title-second">Faça Login:</h2>
 				<div class="social-media">
 					<ul class="list-social-media">
-						<a class="link-social-media" href="#"><li class="item-social-media"><i class="fab fa-facebook-f"></i></li></a>
-						<a class="link-social-media" href="#"><li class="item-social-media"><i class="fab fa-google-plus-g"></i></li></a>
-						<a class="link-social-media" href="#"><li class="item-social-media"><i class="fab fa-linkedin-in"></i></li></a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media"><i class="fab fa-facebook-f"></i></li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media"><i class="fab fa-google-plus-g"></i></li>
+						</a>
+						<a class="link-social-media" href="#">
+							<li class="item-social-media"><i class="fab fa-linkedin-in"></i></li>
+						</a>
 					</ul>
 				</div>
 				<p class="description description-second"> insira suas informações:</p>
@@ -82,5 +94,45 @@
 	</div>
 
 	<script src="../js/login.js"></script>
+	<script>
+		function fecharMensagemErro() {
+    const msg = document.getElementById('mensagem-erro');
+    if (msg) {
+      msg.remove();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const erro = params.get('erro');
+
+    if (erro) {
+      let mensagem = '';
+
+      if (erro === 'senha') {
+        mensagem = 'Senha incorreta. Tente novamente.';
+      } else if (erro === 'email') {
+        mensagem = 'Email não encontrado. Verifique e tente novamente.';
+      }
+
+      if (mensagem) {
+        const div = document.createElement('div');
+        div.id = 'mensagem-erro';
+        div.className = 'mensagem-erro';
+
+        div.innerHTML = `
+          <span class="fechar-erro" onclick="fecharMensagemErro()">×</span>
+          <span>${mensagem}</span>
+        `;
+
+        document.body.prepend(div); // ou insira em outro lugar adequado do seu layout
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  });
+
+	</script>
+
 </body>
+
 </html>
