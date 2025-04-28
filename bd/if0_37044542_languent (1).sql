@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: sql205.infinityfree.com
--- Tempo de geração: 21/04/2025 às 19:38
--- Versão do servidor: 10.6.19-MariaDB
--- Versão do PHP: 7.2.22
+-- Host: 127.0.0.1:3307
+-- Tempo de geração: 29/04/2025 às 01:29
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -76,7 +75,7 @@ INSERT INTO `tb_preferencias` (`id_preferencia`, `preferencia`) VALUES
 CREATE TABLE `tb_usuario` (
   `id_usuario` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `senha` varchar(50) NOT NULL,
+  `senha` varchar(256) NOT NULL,
   `email` varchar(50) NOT NULL,
   `id_lingua` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -127,7 +126,8 @@ INSERT INTO `tb_usuario` (`id_usuario`, `nome`, `senha`, `email`, `id_lingua`) V
 (47, 'Paulo', 's>#yES_-6uN3XM;', 'Paulo.israel@sempreceub.com', 1),
 (48, 'AAAAAa', 's>#yES_-6uN3XM;', 'Felipe@gmail.com', 1),
 (49, 'Eduardo', '1234567', 'jose@a', NULL),
-(50, 'Ellen', 'geovane', 'ellenwendiaaraujo@icloud.com', 1);
+(50, 'Ellen', 'geovane', 'ellenwendiaaraujo@icloud.com', 1),
+(51, 'Teste3', '$2y$10$GJ.Of.ZMjrb5EsMW3.zz4OWpSmkqpf8b9DpQMfNIks8eG6WTCugXy', 'teste3@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -174,10 +174,13 @@ INSERT INTO `tb_usuario_preferencia` (`id_usuario`, `id_preferencia`) VALUES
 (48, 5),
 (50, 2),
 (50, 3),
-(50, 6);
+(50, 6),
+(51, 1),
+(51, 2),
+(51, 3);
 
 --
--- Índices de tabelas apagadas
+-- Índices para tabelas despejadas
 --
 
 --
@@ -209,7 +212,7 @@ ALTER TABLE `tb_usuario_preferencia`
   ADD KEY `id_preferencia` (`id_preferencia`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -222,10 +225,10 @@ ALTER TABLE `tb_lingua`
 -- AUTO_INCREMENT de tabela `tb_usuario`
 --
 ALTER TABLE `tb_usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- Restrições para dumps de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
