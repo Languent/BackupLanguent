@@ -47,13 +47,15 @@ if ($result->num_rows === 1) {
         exit;
     } else {
         // Senha incorreta
-        header("Location: ../html/login.html?erro=senha");
+        header("Location: ../html/login.html?mensagem=" . urlencode("Senha incorreta. Tente novamente."));
         exit;
+
     }
 } else {
     // Usuário não encontrado
-    header("Location: ../html/login.html?erro=email");
+    header("Location: ../html/login.html?mensagem=" . urlencode("Email não encontrado. Verifique e tente novamente."));
     exit;
+
 }
 
 // Fechar o statement de login
