@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Container principal */
+.recovery-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 450px;
+    margin: 1rem;
+}
+
+/* Título */
+.recovery-container h1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Instruções */
+.recovery-instructions {
+    color: #7f8c8d;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Formulário */
+.recovery-form {
+    margin-bottom: 1.5rem;
+}
+
+/* Grupos de formulário */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input[type="email"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Botão */
+.recovery-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recovery-button:hover {
+    background-color: #2980b9;
+}
+
+/* Link de login */
+.login-link {
+    text-align: center;
+    color: #7f8c8d;
+}
+
+.login-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Mensagens de status */
+.status-message {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+}
+
+.status-message .success {
+    color: #27ae60;
+    background-color: rgba(39, 174, 96, 0.1);
+    padding: 0.8rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.status-message .error {
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 0.8rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Mensagem */
+#msg {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  
+    display: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+  
+  /* Tipos */
+  .msg-success {
+    background-color: #d0f0c0;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+  }
+  
+  .msg-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+  }
+  
+  /* Classe de animação */
+  .fade-out {
+    opacity: 0;
+  }
+  
+  
+/* Responsividade */
+@media (max-width: 480px) {
+    .recovery-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .recovery-container h1 {
+        font-size: 1.5rem;
+    }
+}
