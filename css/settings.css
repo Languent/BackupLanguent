@@ -1,71 +1,252 @@
 /* settings.css */
 
+:root {
+    /* Paleta de Cores */
+    --color-dark-blue-body: #1A202C; /* Mais escuro para o background geral */
+    --color-dark-blue-card: #2D3748; /* Fundo dos cards/containers */
+    --color-text-light: #E2E8F0;    /* Texto principal levemente cinza */
+    --color-text-medium: #A0AEC0;   /* Texto secundário/descrições */
+    --color-primary-blue: #4299E1;  /* Azul vibrante para elementos interativos */
+    --color-primary-blue-dark: #3182CE; /* Azul mais escuro no hover */
+    --color-accent-blue: #90CDF4;   /* Azul claro para destaques/títulos */
+    --color-disabled: #4A5568;      /* Cor para elementos desabilitados */
+    --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+
+    /* Tipografia */
+    --font-family-primary: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    --font-size-large: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem;     /* 24px */
+}
+
 body {
-  background-color: #1E293B; /* Azul escuro do seu tema */
-  color: #E0E7FF;           /* Texto branco azulado */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+    background-color: var(--color-dark-blue-body);
+    color: var(--color-text-light);
+    font-family: var(--font-family-primary);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
 }
 
 .container {
-  max-width: 600px;
-  margin: 40px auto;
-  background-color: #2E3A59; /* Fundo um pouco mais claro que o body */
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    max-width: 650px; /* Um pouco maior */
+    width: 100%;
+    background-color: var(--color-dark-blue-card);
+    padding: 40px; /* Mais padding */
+    border-radius: 16px; /* Mais arredondado */
+    box-shadow: 0 10px 30px var(--color-shadow); /* Sombra mais proeminente */
+    box-sizing: border-box;
 }
 
-h2 {
-  margin-bottom: 24px;
-  font-weight: 700;
-  color: #93C5FD; /* Azul claro para títulos */
-  text-align: center;
+.title {
+    margin-bottom: 30px;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-accent-blue);
+    text-align: center;
+    letter-spacing: 0.05em; /* Pequeno espaçamento entre letras */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave no texto */
 }
 
-h3 {
-  margin-top: 20px;
-  margin-bottom: 12px;
-  font-weight: 600;
-  color: #BFDBFE; /* Azul mais claro */
+.section {
+    margin-bottom: 30px; /* Espaçamento entre as seções */
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador suave */
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 1.1rem;
+.section:last-child {
+    border-bottom: none; /* Remove a borda da última seção */
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-  margin-right: 12px;
-  cursor: pointer;
-  accent-color: #60A5FA; /* Azul claro para check/radio */
+.section-title {
+    margin-top: 0; /* Remover margin-top padrão */
+    margin-bottom: 20px;
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-align: left;
 }
 
-button {
-  display: block;
-  width: 100%;
-  padding: 14px 0;
-  margin-top: 30px;
-  background-color: #2563EB; /* Azul forte */
-  color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.options-group {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem linha */
+    gap: 15px; /* Espaçamento entre os itens */
 }
 
-button:disabled {
-  background-color: #94A3B8; /* Cinza azulado desativado */
-  cursor: not-allowed;
+.grid-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 2 colunas em telas maiores, 1 em menores */
+    gap: 15px;
 }
 
-button:not(:disabled):hover {
-  background-color: #1D4ED8; /* Azul mais escuro no hover */
+/* Estilo para Custom Radio Buttons */
+.custom-radio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    color: var(--color-text-medium);
+    transition: color 0.2s ease;
+}
+
+.custom-radio input[type="radio"] {
+    display: none; /* Esconde o radio button original */
+}
+
+.radio-checkmark {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--color-text-medium);
+    border-radius: 50%;
+    margin-right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Não encolhe */
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.radio-checkmark::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-primary-blue);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+}
+
+.custom-radio input[type="radio"]:checked + .radio-checkmark {
+    border-color: var(--color-primary-blue);
+    background-color: var(--color-dark-blue-body); /* Fundo sutil */
+}
+
+.custom-radio input[type="radio"]:checked + .radio-checkmark::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.custom-radio:hover .radio-checkmark {
+    border-color: var(--color-primary-blue);
+}
+
+.custom-radio:hover {
+    color: var(--color-text-light);
+}
+
+
+/* Estilo para Custom Checkboxes */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    color: var(--color-text-medium);
+    transition: color 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    display: none; /* Esconde o checkbox original */
+}
+
+.checkbox-checkmark {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--color-text-medium);
+    border-radius: 6px; /* Bordas levemente arredondadas */
+    margin-right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.checkbox-checkmark::after {
+    content: '✔'; /* Ícone de check */
+    font-size: 14px;
+    color: white;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark {
+    background-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue);
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.custom-checkbox:hover .checkbox-checkmark {
+    border-color: var(--color-primary-blue);
+}
+
+.custom-checkbox:hover {
+    color: var(--color-text-light);
+}
+
+
+button#confirmButton {
+    display: block;
+    width: 100%;
+    padding: 16px 0; /* Mais padding */
+    margin-top: 40px; /* Mais espaçamento */
+    background-color: var(--color-primary-blue);
+    color: white;
+    font-weight: 700;
+    font-size: var(--font-size-large);
+    border: none;
+    border-radius: 10px; /* Mais arredondado */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase; /* Texto em maiúsculas */
+    letter-spacing: 0.08em;
+}
+
+button#confirmButton:disabled {
+    background-color: var(--color-disabled);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+button#confirmButton:not(:disabled):hover {
+    background-color: var(--color-primary-blue-dark);
+    transform: translateY(-2px); /* Efeito de elevação */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+button#confirmButton:not(:disabled):active {
+    transform: translateY(0); /* Efeito de clique */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 25px;
+    }
+    .grid-options {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+    .title {
+        font-size: var(--font-size-large);
+    }
+    .section-title {
+        font-size: var(--font-size-base);
+    }
 }
