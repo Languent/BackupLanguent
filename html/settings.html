@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configurações</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script> <!-- Substitua 'yourkit' pela sua chave do FontAwesome -->
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-family: sans-serif;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .checkbox-group, .radio-group {
+      margin-bottom: 24px;
+    }
+
+    .checkbox-group label,
+    .radio-group label {
+      margin-bottom: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Configurações do Usuário</h2>
+
+    <div class="radio-group">
+      <h3>Idioma</h3>
+      <label><input type="radio" name="language" value="pt"> Português</label>
+      <label><input type="radio" name="language" value="en"> Inglês</label>
+      <label><input type="radio" name="language" value="es"> Espanhol</label>
+    </div>
+
+    <div class="checkbox-group">
+      <h3>Gostos do Usuário (mínimo 3)</h3>
+      <label><input type="checkbox" name="interests" value="tecnologia"> Tecnologia</label>
+      <label><input type="checkbox" name="interests" value="esportes"> Esportes</label>
+      <label><input type="checkbox" name="interests" value="música"> Música</label>
+      <label><input type="checkbox" name="interests" value="cinema"> Cinema</label>
+      <label><input type="checkbox" name="interests" value="jogos"> Jogos</label>
+      <label><input type="checkbox" name="interests" value="viagem"> Viagem</label>
+    </div>
+
+    <button id="confirmButton" disabled>Confirmar</button>
+  </div>
+
+
+  <script src="settings.js"></script>
+</body>
+</html>
+
