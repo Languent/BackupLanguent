@@ -8,67 +8,73 @@
     <link rel="stylesheet" href="../css/settings.css">
 </head>
 <body>
-    <div class="container">
-        <h2 class="title">Configurações do Usuário</h2>
+    <div class="main-wrapper"> <header class="page-header">
+            <h1 class="page-title">Suas Configurações</h1>
+            <p class="page-subtitle">Personalize sua experiência na plataforma.</p>
+        </header>
 
-        <section class="section language-section">
-            <h3 class="section-title">Escolha o Idioma</h3>
-            <div class="options-group">
-                <label class="custom-radio">
-                    <input type="radio" name="language" value="pt" />
-                    <span class="radio-checkmark"></span>
-                    Português
-                </label>
-                <label class="custom-radio">
-                    <input type="radio" name="language" value="en" />
-                    <span class="radio-checkmark"></span>
-                    Inglês
-                </label>
-                <label class="custom-radio">
-                    <input type="radio" name="language" value="es" />
-                    <span class="radio-checkmark"></span>
-                    Espanhol
-                </label>
-            </div>
-        </section>
+        <div class="container">
+            <h2 class="title">Preferências do Usuário</h2>
 
-        <section class="section interests-section">
-            <h3 class="section-title">Selecione Seus Interesses (mínimo 3)</h3>
-            <div class="options-group grid-options">
-                <label class="custom-checkbox">
-                    <input type="checkbox" name="interests" value="tecnologia" />
-                    <span class="checkbox-checkmark"></span>
-                    Tecnologia
-                </label>
-                <label class="custom-checkbox">
-                    <input type="checkbox" name="interests" value="esportes" />
-                    <span class="checkbox-checkmark"></span>
-                    Esportes
-                </label>
-                <label class="custom-checkbox">
-                    <input type="checkbox" name="interests" value="musica" />
-                    <span class="checkbox-checkmark"></span>
-                    Música
-                </label>
-                <label class="custom-checkbox">
-                    <input type="checkbox" name="interests" value="cinema" />
-                    <span class="checkbox-checkmark"></span>
-                    Cinema
-                </label>
-                <label class="custom-checkbox">
-                    <input type="checkbox" name="interests" value="leitura" />
-                    <span class="checkbox-checkmark"></span>
-                    Leitura
-                </label>
-                <label class="custom-checkbox">
-                    <input type="checkbox" name="interests" value="jogos" />
-                    <span class="checkbox-checkmark"></span>
-                    Jogos
-                </label>
-            </div>
-        </section>
+            <section class="section language-section">
+                <h3 class="section-title">Escolha o Idioma</h3>
+                <div class="options-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="language" value="pt" />
+                        <span class="radio-checkmark"></span>
+                        Português
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="language" value="en" />
+                        <span class="radio-checkmark"></span>
+                        Inglês
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="language" value="es" />
+                        <span class="radio-checkmark"></span>
+                        Espanhol
+                    </label>
+                </div>
+            </section>
 
-        <button id="confirmButton" disabled>Confirmar Preferências</button>
+            <section class="section interests-section">
+                <h3 class="section-title">Selecione Seus Interesses (mínimo 3)</h3>
+                <div class="options-group grid-options">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="interests" value="tecnologia" />
+                        <span class="checkbox-checkmark"></span>
+                        Tecnologia
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="interests" value="esportes" />
+                        <span class="checkbox-checkmark"></span>
+                        Esportes
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="interests" value="musica" />
+                        <span class="checkbox-checkmark"></span>
+                        Música
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="cinema" />
+                        <span class="checkbox-checkmark"></span>
+                        Cinema
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="interests" value="leitura" />
+                        <span class="checkbox-checkmark"></span>
+                        Leitura
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="interests" value="jogos" />
+                        <span class="checkbox-checkmark"></span>
+                        Jogos
+                    </label>
+                </div>
+            </section>
+
+            <button id="confirmButton" disabled>Salvar Preferências</button>
+        </div>
     </div>
 
     <script src="../js/settings.js"></script>

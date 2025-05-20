@@ -1,7 +1,7 @@
 /* settings.css */
 
 :root {
-    /* Paleta de Cores (Tema Claro) */
+    /* Paleta de Cores (Tema Claro) - Mantidas as que você especificou */
     --color-body-background: white;       /* Fundo principal branco */
     --color-card-background: #c5dbf5;    /* Fundo dos cards/containers em azul pálido */
     
@@ -17,52 +17,86 @@
     --color-disabled-bg: #E0E0E0;        /* Fundo do botão desabilitado em cinza claro */
     --color-disabled-text: #A0A0A0;      /* Texto do botão desabilitado em cinza */
     
-    --color-shadow: rgba(0, 0, 0, 0.1);  /* Sombra mais suave para tema claro */
+    --color-shadow: rgba(0, 0, 0, 0.08);  /* Sombra mais suave para tema claro */ /* Ajustada */
 
-    /* Tipografia (Mantida como antes) */
-    --font-family-primary: 'Inter', sans-serif; /* Lembre-se de linkar no HTML */
+    /* Tipografia (Mantida) */
+    --font-family-primary: 'Inter', sans-serif; 
     --font-size-base: 16px;
-    --font-size-large: 1.25rem; /* 20px */
-    --font-size-xl: 1.5rem;     /* 24px */
+    --font-size-large: 1.15rem; /* Levemente ajustado para 18.4px */
+    --font-size-xl: 2.2rem;     /* Aumentado para o título principal */
+    --font-size-xxl: 2.8rem;    /* Novo para o h1 da página */
 }
 
 body {
     background-color: var(--color-body-background);
-    color: var(--color-text-main); /* Texto principal escuro */
+    color: var(--color-text-main);
     font-family: var(--font-family-primary);
     margin: 0;
-    padding: 20px;
+    padding: 0; /* Remover padding do body, pois o main-wrapper terá */
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
 }
 
-.container {
-    max-width: 650px;
+.main-wrapper {
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 1200px; /* Limite em telas gigantes, mas se estende mais */
+    margin: 0 auto; /* Centraliza o wrapper */
+    padding: 40px 20px; /* Padding geral para o conteúdo */
+    display: flex;
+    flex-direction: column; /* Organiza header e container verticalmente */
+    align-items: center; /* Centraliza horizontalmente o conteúdo interno */
+}
+
+/* Estilo para o Cabeçalho da Página */
+.page-header {
     width: 100%;
-    background-color: var(--color-card-background); /* Fundo do container em azul pálido */
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px var(--color-shadow); /* Sombra mais suave */
+    text-align: center;
+    margin-bottom: 50px; /* Mais espaço abaixo do cabeçalho */
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Linha divisória sutil */
+}
+
+.page-title {
+    font-size: var(--font-size-xxl); /* Título grande */
+    color: var(--color-primary-blue); /* Em azul royal */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    font-size: var(--font-size-large);
+    color: var(--color-text-secondary);
+    max-width: 600px; /* Limita a largura para melhor leitura */
+    margin: 0 auto;
+}
+
+
+.container {
+    max-width: 800px; /* Aumentado para ocupar mais espaço */
+    width: 100%;
+    background-color: var(--color-card-background);
+    padding: 50px; /* Mais padding interno */
+    border-radius: 18px; /* Levemente mais arredondado */
+    box-shadow: 0 15px 40px var(--color-shadow); /* Sombra mais proeminente */
     box-sizing: border-box;
 }
 
 .title {
-    margin-bottom: 30px;
+    margin-bottom: 35px; /* Mais espaço abaixo do título principal */
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-accent-blue); /* Título principal em azul mais claro */
+    color: var(--color-accent-blue);
     text-align: center;
-    letter-spacing: 0.05em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra de texto mais leve */
+    letter-spacing: 0.03em; /* Leve ajuste */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .section {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Separador suave escuro */
+    margin-bottom: 35px; /* Mais espaço entre as seções */
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Divisor mais visível */
 }
 
 .section:last-child {
@@ -74,31 +108,32 @@ body {
 .section-title {
     margin-top: 0;
     margin-bottom: 20px;
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-large); /* Tamanho ajustado */
     font-weight: 600;
-    color: var(--color-text-main); /* Títulos de seção em cinza escuro */
+    color: var(--color-text-main);
     text-align: left;
 }
 
 .options-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 18px; /* Mais espaço entre os itens */
 }
 
 .grid-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    /* Adapta-se a 2 colunas em telas maiores, mínimo de 200px para cada */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px; /* Mais espaço */
 }
 
-/* Estilo para Custom Radio Buttons */
+/* Estilos dos Custom Radio/Checkbox (mantidos, apenas cores de variáveis ajustadas) */
 .custom-radio {
     display: flex;
     align-items: center;
     cursor: pointer;
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary); /* Texto do rádio em cinza médio */
+    color: var(--color-text-secondary);
     transition: color 0.2s ease;
 }
 
@@ -107,9 +142,9 @@ body {
 }
 
 .radio-checkmark {
-    width: 22px;
-    height: 22px;
-    border: 2px solid var(--color-input-border); /* Borda do rádio em cinza claro */
+    width: 24px; /* Levemente maior */
+    height: 24px; /* Levemente maior */
+    border: 2px solid var(--color-input-border);
     border-radius: 50%;
     margin-right: 12px;
     display: inline-flex;
@@ -118,14 +153,14 @@ body {
     flex-shrink: 0;
     transition: all 0.2s ease;
     position: relative;
-    background-color: var(--color-body-background); /* Fundo branco para o círculo */
+    background-color: var(--color-body-background);
 }
 
 .radio-checkmark::after {
     content: '';
-    width: 12px;
-    height: 12px;
-    background-color: var(--color-primary-blue); /* Ponto do rádio em azul royal */
+    width: 13px; /* Levemente maior */
+    height: 13px; /* Levemente maior */
+    background-color: var(--color-primary-blue);
     border-radius: 50%;
     opacity: 0;
     transform: scale(0.5);
@@ -133,8 +168,8 @@ body {
 }
 
 .custom-radio input[type="radio"]:checked + .radio-checkmark {
-    border-color: var(--color-primary-blue); /* Borda do rádio selecionado em azul royal */
-    background-color: var(--color-body-background); /* Mantém o fundo branco */
+    border-color: var(--color-primary-blue);
+    background-color: var(--color-body-background);
 }
 
 .custom-radio input[type="radio"]:checked + .radio-checkmark::after {
@@ -143,21 +178,20 @@ body {
 }
 
 .custom-radio:hover .radio-checkmark {
-    border-color: var(--color-primary-blue); /* Borda do rádio no hover em azul royal */
+    border-color: var(--color-primary-blue);
 }
 
 .custom-radio:hover {
-    color: var(--color-text-main); /* Texto do rádio no hover em cinza escuro */
+    color: var(--color-text-main);
 }
 
 
-/* Estilo para Custom Checkboxes */
 .custom-checkbox {
     display: flex;
     align-items: center;
     cursor: pointer;
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary); /* Texto do checkbox em cinza médio */
+    color: var(--color-text-secondary);
     transition: color 0.2s ease;
 }
 
@@ -166,9 +200,9 @@ body {
 }
 
 .checkbox-checkmark {
-    width: 22px;
-    height: 22px;
-    border: 2px solid var(--color-input-border); /* Borda do checkbox em cinza claro */
+    width: 24px; /* Levemente maior */
+    height: 24px; /* Levemente maior */
+    border: 2px solid var(--color-input-border);
     border-radius: 6px;
     margin-right: 12px;
     display: inline-flex;
@@ -177,21 +211,21 @@ body {
     flex-shrink: 0;
     transition: all 0.2s ease;
     position: relative;
-    background-color: var(--color-body-background); /* Fundo branco para o quadrado */
+    background-color: var(--color-body-background);
 }
 
 .checkbox-checkmark::after {
     content: '✔';
-    font-size: 14px;
-    color: var(--color-text-main); /* Checkmark em branco */
+    font-size: 16px; /* Levemente maior */
+    color: var(--color-text-main);
     opacity: 0;
     transform: scale(0.5);
     transition: all 0.2s ease;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark {
-    background-color: var(--color-primary-blue); /* Fundo do checkbox selecionado em azul royal */
-    border-color: var(--color-primary-blue); /* Borda do checkbox selecionado em azul royal */
+    background-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue);
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark::after {
@@ -200,25 +234,25 @@ body {
 }
 
 .custom-checkbox:hover .checkbox-checkmark {
-    border-color: var(--color-primary-blue); /* Borda do checkbox no hover em azul royal */
+    border-color: var(--color-primary-blue);
 }
 
 .custom-checkbox:hover {
-    color: var(--color-text-main); /* Texto do checkbox no hover em cinza escuro */
+    color: var(--color-text-main);
 }
 
 
 button#confirmButton {
     display: block;
     width: 100%;
-    padding: 16px 0;
-    margin-top: 40px;
-    background-color: var(--color-primary-blue); /* Fundo do botão em azul royal */
-    color: white; /* Texto do botão em branco */
+    padding: 18px 0; /* Mais padding */
+    margin-top: 50px; /* Mais espaço */
+    background-color: var(--color-primary-blue);
+    color: white;
     font-weight: 700;
     font-size: var(--font-size-large);
     border: none;
-    border-radius: 10px;
+    border-radius: 12px; /* Mais arredondado */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     text-transform: uppercase;
@@ -226,37 +260,71 @@ button#confirmButton {
 }
 
 button#confirmButton:disabled {
-    background-color: var(--color-disabled-bg); /* Fundo do botão desabilitado em cinza claro */
-    color: var(--color-disabled-text); /* Texto do botão desabilitado em cinza */
+    background-color: var(--color-disabled-bg);
+    color: var(--color-disabled-text);
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
 }
 
 button#confirmButton:not(:disabled):hover {
-    background-color: var(--color-primary-blue-dark); /* Fundo do botão no hover em azul royal mais escuro */
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais visível no hover */
+    background-color: var(--color-primary-blue-dark);
+    transform: translateY(-3px); /* Efeito de elevação maior */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra maior no hover */
 }
 
 button#confirmButton:not(:disabled):active {
     transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsividade (mantida a mesma, pois já é adaptável) */
-@media (max-width: 768px) {
-    .container {
-        margin: 20px;
-        padding: 25px;
+/* Responsividade Aprimorada */
+@media (max-width: 900px) { /* Ajustado o breakpoint para expandir mais */
+    .main-wrapper {
+        padding: 30px 15px; /* Reduz padding em telas menores */
     }
-    .grid-options {
-        grid-template-columns: 1fr;
+    .page-title {
+        font-size: var(--font-size-xl); /* Reduz tamanho do h1 */
+    }
+    .container {
+        padding: 35px; /* Reduz padding interno do container */
+    }
+}
+
+@media (max-width: 600px) { /* Para celulares */
+    .main-wrapper {
+        padding: 20px 10px;
+    }
+    .page-header {
+        margin-bottom: 30px;
+    }
+    .page-title {
+        font-size: 2rem;
+    }
+    .page-subtitle {
+        font-size: var(--font-size-base);
+    }
+    .container {
+        padding: 25px;
+        border-radius: 12px;
     }
     .title {
         font-size: var(--font-size-large);
+        margin-bottom: 25px;
     }
     .section-title {
+        font-size: var(--font-size-base);
+        margin-bottom: 15px;
+    }
+    .options-group, .grid-options {
+        gap: 12px; /* Reduz o gap */
+    }
+    .grid-options {
+        grid-template-columns: 1fr; /* Força uma coluna em telas muito pequenas */
+    }
+    button#confirmButton {
+        padding: 15px 0;
+        margin-top: 30px;
         font-size: var(--font-size-base);
     }
 }
