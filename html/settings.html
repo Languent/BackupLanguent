@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Configurações do Usuário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <header class="page-header">
+            <h1 class="page-title">Suas Configurações</h1>
+            <p class="page-subtitle">Personalize sua experiência na plataforma.</p>
+        </header>
+
+        <div class="container">
+            <h2 class="title">Preferências do Usuário</h2>
+
+            <section class="section theme-section">
+                <h3 class="section-title">Tema da Interface</h3> <div class="theme-switcher">
+                    <span>Tema Claro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Tema Escuro</span>
+                </div>
+            </section>
+
+            <section class="section language-section">
+                <h3 class="section-title">Escolha o Idioma</h3> <div class="options-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="language" value="pt" />
+                        <span class="radio-checkmark"></span>
+                        Português
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="language" value="en" />
+                        <span class="radio-checkmark"></span>
+                        Inglês
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="language" value="es" />
+                        <span class="radio-checkmark"></span>
+                        Espanhol
+                    </label>
+                </div>
+            </section>
+
+            <section class="section interests-section">
+                <h3 class="section-title">Selecione Seus Interesses (mínimo 3)</h3> <div class="options-group grid-options">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="interests" value="tecnologia" />
+                        <span class="checkbox-checkmark"></span>
+                        Tecnologia
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="interests" value="esportes" />
+                        <span class="checkbox-checkmark"></span>
+                        Esportes
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="musica" />
+                        <span class="checkbox-checkmark"></span>
+                        Música
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="cinema" />
+                        <span class="checkbox-checkmark"></span>
+                        Cinema
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="leitura" />
+                        <span class="checkbox-checkmark"></span>
+                        Leitura
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="jogos" />
+                        <span class="checkbox-checkmark"></span>
+                        Jogos
+                    </label>
+                </div>
+            </section>
+
+            <button id="confirmButton" disabled>Salvar Preferências</button>
+        </div>
+    </div>
+
+    <script src="../js/settings.js"></script>
+</body>
+</html>
