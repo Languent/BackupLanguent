@@ -1,44 +1,49 @@
 /* settings.css */
 
 :root {
-    /* Paleta de Cores */
-    --color-dark-blue-body: #1A202C; /* Mais escuro para o background geral */
-    --color-dark-blue-card: #2D3748; /* Fundo dos cards/containers */
-    --color-text-light: #E2E8F0;    /* Texto principal levemente cinza */
-    --color-text-medium: #A0AEC0;   /* Texto secundário/descrições */
-    --color-primary-blue: #4299E1;  /* Azul vibrante para elementos interativos */
-    --color-primary-blue-dark: #3182CE; /* Azul mais escuro no hover */
-    --color-accent-blue: #90CDF4;   /* Azul claro para destaques/títulos */
-    --color-disabled: #4A5568;      /* Cor para elementos desabilitados */
-    --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+    /* Paleta de Cores Nova */
+    --color-dark-background: #1A1A2E; /* Um azul bem escuro para o body, mantendo o tema escuro */
+    --color-card-background: #252D4A; /* Um pouco mais claro que o body para o container */
+    
+    --color-primary-blue: #4169E1;  /* Azul Royal - Para elementos interativos, botão */
+    --color-primary-blue-dark: #3553C0; /* Versão mais escura do Royal Blue para hover */
+    
+    --color-accent-blue: #4f9cf9;   /* Azul Claro - Para títulos, destaques, checkmarks */
+    --color-light-blue: #c5dbf5;    /* Azul Pálido - Para texto secundário, bordas de input */
+    
+    --color-text-main: white;       /* Branco - Para texto principal */
+    --color-text-secondary: var(--color-light-blue); /* Texto secundário */
+    
+    --color-disabled-bg: #6B7280;   /* Cinza para botão desabilitado */
+    --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra */
 
-    /* Tipografia */
-    --font-family-primary: 'Inter', sans-serif;
+    /* Tipografia (Mantida como antes, se não houver outra fonte preferida) */
+    --font-family-primary: 'Inter', sans-serif; /* Lembre-se de linkar no HTML */
     --font-size-base: 16px;
     --font-size-large: 1.25rem; /* 20px */
     --font-size-xl: 1.5rem;     /* 24px */
 }
 
 body {
-    background-color: var(--color-dark-blue-body);
-    color: var(--color-text-light);
+    background-color: var(--color-dark-background);
+    color: var(--color-text-main);
     font-family: var(--font-family-primary);
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ocupa a altura total da viewport */
-    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .container {
-    max-width: 650px; /* Um pouco maior */
+    max-width: 650px;
     width: 100%;
-    background-color: var(--color-dark-blue-card);
-    padding: 40px; /* Mais padding */
-    border-radius: 16px; /* Mais arredondado */
-    box-shadow: 0 10px 30px var(--color-shadow); /* Sombra mais proeminente */
+    background-color: var(--color-card-background);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--color-shadow);
     box-sizing: border-box;
 }
 
@@ -46,42 +51,42 @@ body {
     margin-bottom: 30px;
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-accent-blue);
+    color: var(--color-accent-blue); /* Usando o azul mais claro para o título */
     text-align: center;
-    letter-spacing: 0.05em; /* Pequeno espaçamento entre letras */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave no texto */
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section {
-    margin-bottom: 30px; /* Espaçamento entre as seções */
+    margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador suave */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .section:last-child {
-    border-bottom: none; /* Remove a borda da última seção */
+    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
 .section-title {
-    margin-top: 0; /* Remover margin-top padrão */
+    margin-top: 0;
     margin-bottom: 20px;
     font-size: var(--font-size-large);
     font-weight: 600;
-    color: var(--color-text-light);
+    color: var(--color-text-main); /* Títulos de seção em branco */
     text-align: left;
 }
 
 .options-group {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha */
-    gap: 15px; /* Espaçamento entre os itens */
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .grid-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 2 colunas em telas maiores, 1 em menores */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
 }
 
@@ -91,24 +96,24 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: var(--font-size-base);
-    color: var(--color-text-medium);
+    color: var(--color-text-secondary); /* Texto do rádio em azul pálido */
     transition: color 0.2s ease;
 }
 
 .custom-radio input[type="radio"] {
-    display: none; /* Esconde o radio button original */
+    display: none;
 }
 
 .radio-checkmark {
     width: 22px;
     height: 22px;
-    border: 2px solid var(--color-text-medium);
+    border: 2px solid var(--color-light-blue); /* Borda do rádio em azul pálido */
     border-radius: 50%;
     margin-right: 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /* Não encolhe */
+    flex-shrink: 0;
     transition: all 0.2s ease;
     position: relative;
 }
@@ -117,7 +122,7 @@ body {
     content: '';
     width: 12px;
     height: 12px;
-    background-color: var(--color-primary-blue);
+    background-color: var(--color-primary-blue); /* Ponto do rádio em azul royal */
     border-radius: 50%;
     opacity: 0;
     transform: scale(0.5);
@@ -125,8 +130,8 @@ body {
 }
 
 .custom-radio input[type="radio"]:checked + .radio-checkmark {
-    border-color: var(--color-primary-blue);
-    background-color: var(--color-dark-blue-body); /* Fundo sutil */
+    border-color: var(--color-primary-blue); /* Borda do rádio selecionado em azul royal */
+    background-color: rgba(65, 105, 225, 0.1); /* Fundo sutil ao selecionar */
 }
 
 .custom-radio input[type="radio"]:checked + .radio-checkmark::after {
@@ -135,11 +140,11 @@ body {
 }
 
 .custom-radio:hover .radio-checkmark {
-    border-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue); /* Borda do rádio no hover em azul royal */
 }
 
 .custom-radio:hover {
-    color: var(--color-text-light);
+    color: var(--color-text-main); /* Texto do rádio no hover em branco */
 }
 
 
@@ -149,19 +154,19 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: var(--font-size-base);
-    color: var(--color-text-medium);
+    color: var(--color-text-secondary); /* Texto do checkbox em azul pálido */
     transition: color 0.2s ease;
 }
 
 .custom-checkbox input[type="checkbox"] {
-    display: none; /* Esconde o checkbox original */
+    display: none;
 }
 
 .checkbox-checkmark {
     width: 22px;
     height: 22px;
-    border: 2px solid var(--color-text-medium);
-    border-radius: 6px; /* Bordas levemente arredondadas */
+    border: 2px solid var(--color-light-blue); /* Borda do checkbox em azul pálido */
+    border-radius: 6px;
     margin-right: 12px;
     display: inline-flex;
     align-items: center;
@@ -172,17 +177,17 @@ body {
 }
 
 .checkbox-checkmark::after {
-    content: '✔'; /* Ícone de check */
+    content: '✔';
     font-size: 14px;
-    color: white;
+    color: var(--color-text-main); /* Checkmark em branco */
     opacity: 0;
     transform: scale(0.5);
     transition: all 0.2s ease;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark {
-    background-color: var(--color-primary-blue);
-    border-color: var(--color-primary-blue);
+    background-color: var(--color-primary-blue); /* Fundo do checkbox selecionado em azul royal */
+    border-color: var(--color-primary-blue); /* Borda do checkbox selecionado em azul royal */
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark::after {
@@ -191,46 +196,46 @@ body {
 }
 
 .custom-checkbox:hover .checkbox-checkmark {
-    border-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue); /* Borda do checkbox no hover em azul royal */
 }
 
 .custom-checkbox:hover {
-    color: var(--color-text-light);
+    color: var(--color-text-main); /* Texto do checkbox no hover em branco */
 }
 
 
 button#confirmButton {
     display: block;
     width: 100%;
-    padding: 16px 0; /* Mais padding */
-    margin-top: 40px; /* Mais espaçamento */
-    background-color: var(--color-primary-blue);
-    color: white;
+    padding: 16px 0;
+    margin-top: 40px;
+    background-color: var(--color-primary-blue); /* Fundo do botão em azul royal */
+    color: var(--color-text-main); /* Texto do botão em branco */
     font-weight: 700;
     font-size: var(--font-size-large);
     border: none;
-    border-radius: 10px; /* Mais arredondado */
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    text-transform: uppercase; /* Texto em maiúsculas */
+    text-transform: uppercase;
     letter-spacing: 0.08em;
 }
 
 button#confirmButton:disabled {
-    background-color: var(--color-disabled);
+    background-color: var(--color-disabled-bg); /* Fundo do botão desabilitado em cinza */
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
 }
 
 button#confirmButton:not(:disabled):hover {
-    background-color: var(--color-primary-blue-dark);
-    transform: translateY(-2px); /* Efeito de elevação */
+    background-color: var(--color-primary-blue-dark); /* Fundo do botão no hover em azul royal mais escuro */
+    transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 button#confirmButton:not(:disabled):active {
-    transform: translateY(0); /* Efeito de clique */
+    transform: translateY(0);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -241,7 +246,7 @@ button#confirmButton:not(:disabled):active {
         padding: 25px;
     }
     .grid-options {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        grid-template-columns: 1fr;
     }
     .title {
         font-size: var(--font-size-large);
