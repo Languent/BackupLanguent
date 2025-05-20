@@ -1,23 +1,25 @@
 /* settings.css */
 
 :root {
-    /* Paleta de Cores Nova */
-    --color-dark-background: #1A1A2E; /* Um azul bem escuro para o body, mantendo o tema escuro */
-    --color-card-background: #252D4A; /* Um pouco mais claro que o body para o container */
+    /* Paleta de Cores (Tema Claro) */
+    --color-body-background: white;       /* Fundo principal branco */
+    --color-card-background: #c5dbf5;    /* Fundo dos cards/containers em azul pálido */
     
-    --color-primary-blue: #4169E1;  /* Azul Royal - Para elementos interativos, botão */
-    --color-primary-blue-dark: #3553C0; /* Versão mais escura do Royal Blue para hover */
+    --color-primary-blue: #4169E1;       /* Azul Royal - Para elementos interativos, botão */
+    --color-primary-blue-dark: #3553C0;  /* Versão mais escura do Royal Blue para hover */
     
-    --color-accent-blue: #4f9cf9;   /* Azul Claro - Para títulos, destaques, checkmarks */
-    --color-light-blue: #c5dbf5;    /* Azul Pálido - Para texto secundário, bordas de input */
+    --color-accent-blue: #4f9cf9;        /* Azul Claro - Para títulos, destaques, checkmarks */
     
-    --color-text-main: white;       /* Branco - Para texto principal */
-    --color-text-secondary: var(--color-light-blue); /* Texto secundário */
+    --color-text-main: #333333;          /* Texto principal em cinza escuro */
+    --color-text-secondary: #666666;     /* Texto secundário em cinza médio */
+    --color-input-border: #BBBBBB;       /* Borda de inputs inativos em cinza claro */
     
-    --color-disabled-bg: #6B7280;   /* Cinza para botão desabilitado */
-    --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra */
+    --color-disabled-bg: #E0E0E0;        /* Fundo do botão desabilitado em cinza claro */
+    --color-disabled-text: #A0A0A0;      /* Texto do botão desabilitado em cinza */
+    
+    --color-shadow: rgba(0, 0, 0, 0.1);  /* Sombra mais suave para tema claro */
 
-    /* Tipografia (Mantida como antes, se não houver outra fonte preferida) */
+    /* Tipografia (Mantida como antes) */
     --font-family-primary: 'Inter', sans-serif; /* Lembre-se de linkar no HTML */
     --font-size-base: 16px;
     --font-size-large: 1.25rem; /* 20px */
@@ -25,8 +27,8 @@
 }
 
 body {
-    background-color: var(--color-dark-background);
-    color: var(--color-text-main);
+    background-color: var(--color-body-background);
+    color: var(--color-text-main); /* Texto principal escuro */
     font-family: var(--font-family-primary);
     margin: 0;
     padding: 20px;
@@ -40,10 +42,10 @@ body {
 .container {
     max-width: 650px;
     width: 100%;
-    background-color: var(--color-card-background);
+    background-color: var(--color-card-background); /* Fundo do container em azul pálido */
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 10px 30px var(--color-shadow);
+    box-shadow: 0 10px 30px var(--color-shadow); /* Sombra mais suave */
     box-sizing: border-box;
 }
 
@@ -51,16 +53,16 @@ body {
     margin-bottom: 30px;
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-accent-blue); /* Usando o azul mais claro para o título */
+    color: var(--color-accent-blue); /* Título principal em azul mais claro */
     text-align: center;
     letter-spacing: 0.05em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra de texto mais leve */
 }
 
 .section {
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Separador suave escuro */
 }
 
 .section:last-child {
@@ -74,7 +76,7 @@ body {
     margin-bottom: 20px;
     font-size: var(--font-size-large);
     font-weight: 600;
-    color: var(--color-text-main); /* Títulos de seção em branco */
+    color: var(--color-text-main); /* Títulos de seção em cinza escuro */
     text-align: left;
 }
 
@@ -96,7 +98,7 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary); /* Texto do rádio em azul pálido */
+    color: var(--color-text-secondary); /* Texto do rádio em cinza médio */
     transition: color 0.2s ease;
 }
 
@@ -107,7 +109,7 @@ body {
 .radio-checkmark {
     width: 22px;
     height: 22px;
-    border: 2px solid var(--color-light-blue); /* Borda do rádio em azul pálido */
+    border: 2px solid var(--color-input-border); /* Borda do rádio em cinza claro */
     border-radius: 50%;
     margin-right: 12px;
     display: inline-flex;
@@ -116,6 +118,7 @@ body {
     flex-shrink: 0;
     transition: all 0.2s ease;
     position: relative;
+    background-color: var(--color-body-background); /* Fundo branco para o círculo */
 }
 
 .radio-checkmark::after {
@@ -131,7 +134,7 @@ body {
 
 .custom-radio input[type="radio"]:checked + .radio-checkmark {
     border-color: var(--color-primary-blue); /* Borda do rádio selecionado em azul royal */
-    background-color: rgba(65, 105, 225, 0.1); /* Fundo sutil ao selecionar */
+    background-color: var(--color-body-background); /* Mantém o fundo branco */
 }
 
 .custom-radio input[type="radio"]:checked + .radio-checkmark::after {
@@ -144,7 +147,7 @@ body {
 }
 
 .custom-radio:hover {
-    color: var(--color-text-main); /* Texto do rádio no hover em branco */
+    color: var(--color-text-main); /* Texto do rádio no hover em cinza escuro */
 }
 
 
@@ -154,7 +157,7 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary); /* Texto do checkbox em azul pálido */
+    color: var(--color-text-secondary); /* Texto do checkbox em cinza médio */
     transition: color 0.2s ease;
 }
 
@@ -165,7 +168,7 @@ body {
 .checkbox-checkmark {
     width: 22px;
     height: 22px;
-    border: 2px solid var(--color-light-blue); /* Borda do checkbox em azul pálido */
+    border: 2px solid var(--color-input-border); /* Borda do checkbox em cinza claro */
     border-radius: 6px;
     margin-right: 12px;
     display: inline-flex;
@@ -174,6 +177,7 @@ body {
     flex-shrink: 0;
     transition: all 0.2s ease;
     position: relative;
+    background-color: var(--color-body-background); /* Fundo branco para o quadrado */
 }
 
 .checkbox-checkmark::after {
@@ -200,7 +204,7 @@ body {
 }
 
 .custom-checkbox:hover {
-    color: var(--color-text-main); /* Texto do checkbox no hover em branco */
+    color: var(--color-text-main); /* Texto do checkbox no hover em cinza escuro */
 }
 
 
@@ -210,7 +214,7 @@ button#confirmButton {
     padding: 16px 0;
     margin-top: 40px;
     background-color: var(--color-primary-blue); /* Fundo do botão em azul royal */
-    color: var(--color-text-main); /* Texto do botão em branco */
+    color: white; /* Texto do botão em branco */
     font-weight: 700;
     font-size: var(--font-size-large);
     border: none;
@@ -222,7 +226,8 @@ button#confirmButton {
 }
 
 button#confirmButton:disabled {
-    background-color: var(--color-disabled-bg); /* Fundo do botão desabilitado em cinza */
+    background-color: var(--color-disabled-bg); /* Fundo do botão desabilitado em cinza claro */
+    color: var(--color-disabled-text); /* Texto do botão desabilitado em cinza */
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
@@ -231,15 +236,15 @@ button#confirmButton:disabled {
 button#confirmButton:not(:disabled):hover {
     background-color: var(--color-primary-blue-dark); /* Fundo do botão no hover em azul royal mais escuro */
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais visível no hover */
 }
 
 button#confirmButton:not(:disabled):active {
     transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsividade */
+/* Responsividade (mantida a mesma, pois já é adaptável) */
 @media (max-width: 768px) {
     .container {
         margin: 20px;
