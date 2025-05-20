@@ -10,6 +10,7 @@ const body = document.body; // Referência ao body para adicionar/remover classe
 // Função para atualizar o estado do botão Confirmar
 function updateButtonState() {
     const selected = Array.from(checkboxes).filter(cb => cb.checked);
+    // O botão será desabilitado se menos de 3 interesses forem selecionados
     confirmButton.disabled = selected.length < 3;
 }
 
@@ -27,6 +28,12 @@ confirmButton.addEventListener('click', () => {
         return;
     }
 
+    // Se o botão não estiver disabled, significa que pelo menos 3 interesses foram selecionados
+    if (confirmButton.disabled) {
+         alert("Por favor, selecione pelo menos 3 interesses.");
+         return;
+    }
+
     localStorage.setItem("userLanguage", selectedLanguage.value);
     localStorage.setItem("userInterests", JSON.stringify(selectedInterests));
 
@@ -34,25 +41,8 @@ confirmButton.addEventListener('click', () => {
     // window.location.href = 'Home.html'; // Remova ou descomente se quiser redirecionar
 });
 
-// Lógica de Carregar Preferências (Idioma e Interesses)
-window.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("userLanguage");
-    const savedInterests = JSON.parse(localStorage.getItem("userInterests")) || [];
 
-    if (savedLang) {
-        const langInput = document.querySelector(`input[name="language"][value="${savedLang}"]`);
-        if (langInput) langInput.checked = true;
-    }
-
-    savedInterests.forEach(val => {
-        const interestInput = document.querySelector(`input[name="interests"][value="${val}"]`);
-        if (interestInput) interestInput.checked = true;
-    });
-
-    updateButtonState(); // Atualiza o estado do botão ao carregar
-});
-
-// --- Lógica de Troca de Tema (NOVA SEÇÃO) ---
+// --- Lógica de Troca de Tema ---
 
 // Função para aplicar o tema
 function applyTheme(theme) {
@@ -75,8 +65,10 @@ themeToggle.addEventListener('change', () => {
     }
 });
 
-// Carregar preferência de tema ao carregar a página
+
+// Lógica de Carregar Preferências (Idioma, Interesses e Tema) ao carregar a página
 window.addEventListener("DOMContentLoaded", () => {
+    // Carregar preferência de tema
     const savedTheme = localStorage.getItem('themePreference');
     if (savedTheme) {
         applyTheme(savedTheme);
@@ -88,7 +80,8 @@ window.addEventListener("DOMContentLoaded", () => {
             applyTheme('light');
         }
     }
-    // Restante da lógica de carregar idioma e interesses (já existente)
+
+    // Carregar preferências de idioma e interesses
     const savedLang = localStorage.getItem("userLanguage");
     const savedInterests = JSON.parse(localStorage.getItem("userInterests")) || [];
 
@@ -102,5 +95,6 @@ window.addEventListener("DOMContentLoaded", () => {
         if (interestInput) interestInput.checked = true;
     });
 
+    // Atualiza o estado do botão "Salvar Preferências" após carregar as seleções
     updateButtonState();
 });
