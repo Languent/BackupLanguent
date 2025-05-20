@@ -1,0 +1,71 @@
+/* settings.css */
+
+body {
+  background-color: #1E293B; /* Azul escuro do seu tema */
+  color: #E0E7FF;           /* Texto branco azulado */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #2E3A59; /* Fundo um pouco mais claro que o body */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: #93C5FD; /* Azul claro para títulos */
+  text-align: center;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #BFDBFE; /* Azul mais claro */
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.1rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 12px;
+  cursor: pointer;
+  accent-color: #60A5FA; /* Azul claro para check/radio */
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 30px;
+  background-color: #2563EB; /* Azul forte */
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #94A3B8; /* Cinza azulado desativado */
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color: #1D4ED8; /* Azul mais escuro no hover */
+}
