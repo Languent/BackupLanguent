@@ -4,20 +4,41 @@
 const checkboxes = document.querySelectorAll('input[name="interests"]');
 const radios = document.querySelectorAll('input[name="language"]');
 const confirmButton = document.getElementById('confirmButton');
-const themeToggle = document.getElementById('themeToggle'); // O novo toggle switch
-const body = document.body; // Referência ao body para adicionar/remover classes
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+// DEBBUGING: Verificar se os elementos foram encontrados
+console.log("Confirm Button:", confirmButton);
+console.log("Checkboxes:", checkboxes);
+console.log("Radios:", radios);
+console.log("Theme Toggle:", themeToggle);
+
 
 // Função para atualizar o estado do botão Confirmar
 function updateButtonState() {
-    const selected = Array.from(checkboxes).filter(cb => cb.checked);
+    const selectedInterests = Array.from(checkboxes).filter(cb => cb.checked);
+    console.log("Interesses selecionados:", selectedInterests.length); // DEBUGGING
+    
     // O botão será desabilitado se menos de 3 interesses forem selecionados
-    confirmButton.disabled = selected.length < 3;
+    confirmButton.disabled = selectedInterests.length < 3;
+    console.log("Botão Salvar está desabilitado?", confirmButton.disabled); // DEBUGGING
 }
 
 // Lógica de Salvar Preferências de Idioma e Interesses
-checkboxes.forEach(cb => cb.addEventListener('change', updateButtonState));
+checkboxes.forEach(cb => {
+    cb.addEventListener('change', updateButtonState);
+    // DEBUGGING: Adicionar listener para cada checkbox
+    console.log(`Listener 'change' adicionado ao checkbox: ${cb.value}`);
+});
 
-confirmButton.addEventListener('click', () => {
+// Opcional: Para garantir que o botão seja habilitado ao selecionar um rádio de idioma (se a regra mudar no futuro)
+// radios.forEach(radio => radio.addEventListener('change', updateButtonState));
+
+
+confirmButton.addEventListener('click', (event) => {
+    // PREVINE O COMPORTAMENTO PADRÃO DO BOTÃO (enviar formulário, recarregar página)
+    event.preventDefault(); 
+
     const selectedLanguage = document.querySelector('input[name="language"]:checked');
     const selectedInterests = Array.from(checkboxes)
         .filter(cb => cb.checked)
@@ -25,13 +46,16 @@ confirmButton.addEventListener('click', () => {
 
     if (!selectedLanguage) {
         alert("Por favor, selecione um idioma.");
-        return;
+        return; // Impede a continuação se nenhum idioma for selecionado
     }
 
-    // Se o botão não estiver disabled, significa que pelo menos 3 interesses foram selecionados
+    // A verificação de disabled já é feita pela função updateButtonState().
+    // Se o botão não estiver disabled, significa que selectedInterests.length >= 3.
     if (confirmButton.disabled) {
-         alert("Por favor, selecione pelo menos 3 interesses.");
-         return;
+        // Isso não deveria acontecer se o botão estiver habilitado para ser clicado,
+        // mas é uma salvaguarda.
+        alert("Por favor, selecione pelo menos 3 interesses para salvar.");
+        return;
     }
 
     localStorage.setItem("userLanguage", selectedLanguage.value);
@@ -48,32 +72,39 @@ confirmButton.addEventListener('click', () => {
 function applyTheme(theme) {
     if (theme === 'dark') {
         body.classList.add('dark-theme');
-        themeToggle.checked = true; // Garante que o toggle esteja na posição "escuro"
+        themeToggle.checked = true;
     } else {
         body.classList.remove('dark-theme');
-        themeToggle.checked = false; // Garante que o toggle esteja na posição "claro"
+        themeToggle.checked = false;
     }
-    localStorage.setItem('themePreference', theme); // Salva a preferência
+    localStorage.setItem('themePreference', theme);
+    console.log(`Tema aplicado: ${theme}`); // DEBUGGING
 }
 
 // Event Listener para o toggle de tema
-themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-        applyTheme('dark');
-    } else {
-        applyTheme('light');
-    }
-});
+if (themeToggle) { // Garante que o themeToggle existe antes de adicionar o listener
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+    });
+    console.log("Listener 'change' adicionado ao themeToggle."); // DEBUGGING
+} else {
+    console.error("Erro: Elemento #themeToggle não encontrado."); // DEBUGGING
+}
 
 
 // Lógica de Carregar Preferências (Idioma, Interesses e Tema) ao carregar a página
 window.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM totalmente carregado. Iniciando carregamento de preferências."); // DEBUGGING
+
     // Carregar preferência de tema
     const savedTheme = localStorage.getItem('themePreference');
     if (savedTheme) {
         applyTheme(savedTheme);
     } else {
-        // Se não houver preferência salva, verifica a preferência do sistema
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             applyTheme('dark');
         } else {
@@ -81,20 +112,27 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Carregar preferências de idioma e interesses
+    // Carregar preferências de idioma
     const savedLang = localStorage.getItem("userLanguage");
-    const savedInterests = JSON.parse(localStorage.getItem("userInterests")) || [];
-
     if (savedLang) {
         const langInput = document.querySelector(`input[name="language"][value="${savedLang}"]`);
-        if (langInput) langInput.checked = true;
+        if (langInput) {
+            langInput.checked = true;
+            console.log(`Idioma carregado: ${savedLang}`); // DEBUGGING
+        }
     }
 
+    // Carregar preferências de interesses
+    const savedInterests = JSON.parse(localStorage.getItem("userInterests")) || [];
     savedInterests.forEach(val => {
         const interestInput = document.querySelector(`input[name="interests"][value="${val}"]`);
-        if (interestInput) interestInput.checked = true;
+        if (interestInput) {
+            interestInput.checked = true;
+            console.log(`Interesse carregado: ${val}`); // DEBUGGING
+        }
     });
 
-    // Atualiza o estado do botão "Salvar Preferências" após carregar as seleções
-    updateButtonState();
+    // MUITO IMPORTANTE: Chamar updateButtonState() APÓS carregar as seleções
+    updateButtonState(); 
+    console.log("Função updateButtonState() chamada após carregar preferências."); // DEBUGGING
 });
