@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../css/settings.css">
 </head>
 <body>
-    <div class="main-wrapper"> <header class="page-header">
+    <div class="main-wrapper">
+        <header class="page-header">
             <h1 class="page-title">Suas Configurações</h1>
             <p class="page-subtitle">Personalize sua experiência na plataforma.</p>
         </header>
@@ -16,6 +17,17 @@
         <div class="container">
             <h2 class="title">Preferências do Usuário</h2>
 
+            <section class="section theme-section">
+                <h3 class="section-title">Tema da Interface</h3>
+                <div class="theme-switcher">
+                    <span>Tema Claro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Tema Escuro</span>
+                </div>
+            </section>
             <section class="section language-section">
                 <h3 class="section-title">Escolha o Idioma</h3>
                 <div class="options-group">
@@ -51,7 +63,7 @@
                         Esportes
                     </label>
                     <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="musica" />
+                        <input type="checkbox" name="musica" />
                         <span class="checkbox-checkmark"></span>
                         Música
                     </label>
@@ -61,12 +73,11 @@
                         Cinema
                     </label>
                     <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="leitura" />
+                        <input type="checkbox" name="leitura" />
                         <span class="checkbox-checkmark"></span>
                         Leitura
-                    </label>
                     <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="jogos" />
+                        <input type="checkbox" name="jogos" />
                         <span class="checkbox-checkmark"></span>
                         Jogos
                     </label>

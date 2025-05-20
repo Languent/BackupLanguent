@@ -1,23 +1,23 @@
 /* settings.css */
 
+/* Definições de cores para o TEMA CLARO (padrão) */
 :root {
-    /* Paleta de Cores (Tema Claro) - Mantidas as que você especificou */
-    --color-body-background: white;       /* Fundo principal branco */
-    --color-card-background: #c5dbf5;    /* Fundo dos cards/containers em azul pálido */
+    --color-body-background: white;
+    --color-card-background: #c5dbf5;
     
-    --color-primary-blue: #4169E1;       /* Azul Royal - Para elementos interativos, botão */
-    --color-primary-blue-dark: #3553C0;  /* Versão mais escura do Royal Blue para hover */
+    --color-primary-blue: #4169E1;
+    --color-primary-blue-dark: #3553C0;
     
-    --color-accent-blue: #4f9cf9;        /* Azul Claro - Para títulos, destaques, checkmarks */
+    --color-accent-blue: #4f9cf9;
     
-    --color-text-main: #333333;          /* Texto principal em cinza escuro */
-    --color-text-secondary: #666666;     /* Texto secundário em cinza médio */
-    --color-input-border: #BBBBBB;       /* Borda de inputs inativos em cinza claro */
+    --color-text-main: #333333;
+    --color-text-secondary: #666666;
+    --color-input-border: #BBBBBB;
     
-    --color-disabled-bg: #E0E0E0;        /* Fundo do botão desabilitado em cinza claro */
-    --color-disabled-text: #A0A0A0;      /* Texto do botão desabilitado em cinza */
+    --color-disabled-bg: #E0E0E0;
+    --color-disabled-text: #A0A0A0;
     
-    --color-shadow: rgba(0, 0, 0, 0.08);  /* Sombra mais suave para tema claro */ /* Ajustada */
+    --color-shadow: rgba(0, 0, 0, 0.08);
 
     /* Tipografia (Mantida) */
     --font-family-primary: 'Inter', sans-serif; 
@@ -27,40 +27,62 @@
     --font-size-xxl: 2.8rem;    /* Novo para o h1 da página */
 }
 
+/* Definições de cores para o TEMA ESCURO */
+body.dark-theme {
+    --color-body-background: #1A1A2E; /* Azul bem escuro */
+    --color-card-background: #252D4A; /* Um pouco mais claro que o body para o container */
+    
+    --color-primary-blue: #4169E1; /* Pode manter o mesmo azul vibrante */
+    --color-primary-blue-dark: #3553C0; 
+    
+    --color-accent-blue: #4f9cf9; /* Pode manter o mesmo azul claro */
+    
+    --color-text-main: #E0E7FF;   /* Texto branco azulado */
+    --color-text-secondary: #A0AEC0; /* Texto secundário ligeiramente mais escuro */
+    --color-input-border: #4A5568; /* Borda de inputs em cinza escuro */
+    
+    --color-disabled-bg: #4A5568;
+    --color-disabled-text: #94A3B8;
+    
+    --color-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* Base Styling */
 body {
     background-color: var(--color-body-background);
     color: var(--color-text-main);
     font-family: var(--font-family-primary);
     margin: 0;
-    padding: 0; /* Remover padding do body, pois o main-wrapper terá */
+    padding: 0;
     display: flex;
     justify-content: center;
     min-height: 100vh;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para tema */
 }
 
 .main-wrapper {
-    width: 100%; /* Ocupa toda a largura */
-    max-width: 1200px; /* Limite em telas gigantes, mas se estende mais */
-    margin: 0 auto; /* Centraliza o wrapper */
-    padding: 40px 20px; /* Padding geral para o conteúdo */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
     display: flex;
-    flex-direction: column; /* Organiza header e container verticalmente */
-    align-items: center; /* Centraliza horizontalmente o conteúdo interno */
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Estilo para o Cabeçalho da Página */
 .page-header {
     width: 100%;
     text-align: center;
-    margin-bottom: 50px; /* Mais espaço abaixo do cabeçalho */
+    margin-bottom: 50px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Linha divisória sutil */
+    border-bottom: 1px solid var(--color-input-border); /* Usa variável para borda */
 }
 
 .page-title {
-    font-size: var(--font-size-xxl); /* Título grande */
-    color: var(--color-primary-blue); /* Em azul royal */
+    font-size: var(--font-size-xxl);
+    color: var(--color-primary-blue);
     margin-bottom: 10px;
     font-weight: 700;
 }
@@ -68,35 +90,45 @@ body {
 .page-subtitle {
     font-size: var(--font-size-large);
     color: var(--color-text-secondary);
-    max-width: 600px; /* Limita a largura para melhor leitura */
+    max-width: 600px;
     margin: 0 auto;
 }
 
-
+/* Container principal */
 .container {
-    max-width: 800px; /* Aumentado para ocupar mais espaço */
+    max-width: 800px;
     width: 100%;
     background-color: var(--color-card-background);
-    padding: 50px; /* Mais padding interno */
-    border-radius: 18px; /* Levemente mais arredondado */
-    box-shadow: 0 15px 40px var(--color-shadow); /* Sombra mais proeminente */
+    padding: 50px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px var(--color-shadow);
     box-sizing: border-box;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para tema */
 }
 
 .title {
-    margin-bottom: 35px; /* Mais espaço abaixo do título principal */
+    margin-bottom: 35px;
     font-size: var(--font-size-xl);
     font-weight: 700;
     color: var(--color-accent-blue);
     text-align: center;
-    letter-spacing: 0.03em; /* Leve ajuste */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    letter-spacing: 0.03em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.03); /* Mantido para tema claro */
+}
+
+/* Transição de sombra para tema escuro */
+body.dark-theme .title {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section {
-    margin-bottom: 35px; /* Mais espaço entre as seções */
+    margin-bottom: 35px;
     padding-bottom: 25px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Divisor mais visível */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Borda padrão para tema claro */
+}
+
+body.dark-theme .section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borda para tema escuro */
 }
 
 .section:last-child {
@@ -108,7 +140,7 @@ body {
 .section-title {
     margin-top: 0;
     margin-bottom: 20px;
-    font-size: var(--font-size-large); /* Tamanho ajustado */
+    font-size: var(--font-size-large);
     font-weight: 600;
     color: var(--color-text-main);
     text-align: left;
@@ -117,17 +149,16 @@ body {
 .options-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px; /* Mais espaço entre os itens */
+    gap: 18px;
 }
 
 .grid-options {
     display: grid;
-    /* Adapta-se a 2 colunas em telas maiores, mínimo de 200px para cada */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 18px; /* Mais espaço */
+    gap: 18px;
 }
 
-/* Estilos dos Custom Radio/Checkbox (mantidos, apenas cores de variáveis ajustadas) */
+/* Estilo para Custom Radio Buttons */
 .custom-radio {
     display: flex;
     align-items: center;
@@ -142,8 +173,8 @@ body {
 }
 
 .radio-checkmark {
-    width: 24px; /* Levemente maior */
-    height: 24px; /* Levemente maior */
+    width: 24px;
+    height: 24px;
     border: 2px solid var(--color-input-border);
     border-radius: 50%;
     margin-right: 12px;
@@ -153,13 +184,13 @@ body {
     flex-shrink: 0;
     transition: all 0.2s ease;
     position: relative;
-    background-color: var(--color-body-background);
+    background-color: var(--color-body-background); /* Fundo branco/escuro do checkmark */
 }
 
 .radio-checkmark::after {
     content: '';
-    width: 13px; /* Levemente maior */
-    height: 13px; /* Levemente maior */
+    width: 13px;
+    height: 13px;
     background-color: var(--color-primary-blue);
     border-radius: 50%;
     opacity: 0;
@@ -186,6 +217,7 @@ body {
 }
 
 
+/* Estilo para Custom Checkboxes */
 .custom-checkbox {
     display: flex;
     align-items: center;
@@ -200,8 +232,8 @@ body {
 }
 
 .checkbox-checkmark {
-    width: 24px; /* Levemente maior */
-    height: 24px; /* Levemente maior */
+    width: 24px;
+    height: 24px;
     border: 2px solid var(--color-input-border);
     border-radius: 6px;
     margin-right: 12px;
@@ -216,8 +248,8 @@ body {
 
 .checkbox-checkmark::after {
     content: '✔';
-    font-size: 16px; /* Levemente maior */
-    color: var(--color-text-main);
+    font-size: 16px;
+    color: var(--color-text-main); /* Checkmark em branco/escuro */
     opacity: 0;
     transform: scale(0.5);
     transition: all 0.2s ease;
@@ -245,14 +277,14 @@ body {
 button#confirmButton {
     display: block;
     width: 100%;
-    padding: 18px 0; /* Mais padding */
-    margin-top: 50px; /* Mais espaço */
+    padding: 18px 0;
+    margin-top: 50px;
     background-color: var(--color-primary-blue);
     color: white;
     font-weight: 700;
     font-size: var(--font-size-large);
     border: none;
-    border-radius: 12px; /* Mais arredondado */
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     text-transform: uppercase;
@@ -269,29 +301,114 @@ button#confirmButton:disabled {
 
 button#confirmButton:not(:disabled):hover {
     background-color: var(--color-primary-blue-dark);
-    transform: translateY(-3px); /* Efeito de elevação maior */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra maior no hover */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--color-shadow); /* Usa a variável de sombra do tema atual */
 }
 
 button#confirmButton:not(:disabled):active {
     transform: translateY(0);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px var(--color-shadow);
 }
 
-/* Responsividade Aprimorada */
-@media (max-width: 900px) { /* Ajustado o breakpoint para expandir mais */
+/* Estilo do Toggle Switch */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espaçamento entre o texto e o switch */
+    margin-bottom: 25px; /* Espaço abaixo do switch */
+    color: var(--color-text-main); /* Cor do texto "Tema Claro/Escuro" */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Esconde o checkbox HTML padrão */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-input-border); /* Cor de fundo do slider inativo */
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white; /* Cor do "círculo" do slider */
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--color-primary-blue); /* Cor de fundo do slider ativo */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--color-primary-blue);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Cor do slider em tema escuro */
+body.dark-theme .slider {
+    background-color: #666666; /* Um cinza mais escuro para inativo no dark theme */
+}
+
+body.dark-theme input:checked + .slider {
+    background-color: var(--color-primary-blue);
+}
+
+body.dark-theme .slider:before {
+    background-color: #E0E7FF; /* Cor do "círculo" no dark theme */
+}
+
+
+/* Responsividade Aprimorada (mantida como antes) */
+@media (max-width: 900px) {
     .main-wrapper {
-        padding: 30px 15px; /* Reduz padding em telas menores */
+        padding: 30px 15px;
     }
     .page-title {
-        font-size: var(--font-size-xl); /* Reduz tamanho do h1 */
+        font-size: var(--font-size-xl);
     }
     .container {
-        padding: 35px; /* Reduz padding interno do container */
+        padding: 35px;
     }
 }
 
-@media (max-width: 600px) { /* Para celulares */
+@media (max-width: 600px) {
     .main-wrapper {
         padding: 20px 10px;
     }
@@ -317,10 +434,10 @@ button#confirmButton:not(:disabled):active {
         margin-bottom: 15px;
     }
     .options-group, .grid-options {
-        gap: 12px; /* Reduz o gap */
+        gap: 12px;
     }
     .grid-options {
-        grid-template-columns: 1fr; /* Força uma coluna em telas muito pequenas */
+        grid-template-columns: 1fr;
     }
     button#confirmButton {
         padding: 15px 0;
