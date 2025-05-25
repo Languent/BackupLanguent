@@ -6,10 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Login</title>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<link rel="stylesheet" href="../css/login.css">
 	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<script src="https://platform.twitter.com/widgets.js"></script>
+
 </head>
 
 <body>
@@ -25,20 +27,15 @@
 				<h2 class="title title-second"> Crie sua conta com: </h2>
 				<div class="social-media">
 					<ul class="list-social-media">
-						<a class="link-social-media" href="#">
-							<li class="item-social-media"><i class="fab fa-facebook-f"></i></li>
-						</a>
-						<!-- Botão personalizado com aparência antiga -->
+						<!-- Botão do Google -->
 						<li class="link-social-media" id="google-login-button" style="cursor: pointer;">
 							<div id="g_id_onload"
 								data-client_id="683123440343-21kie9quc4ge1cgbg854oi6ogbpl91ft.apps.googleusercontent.com"
-								data-callback="handleCredentialResponse" data-auto_prompt="false">
-							</div>
-
+								data-callback="handleCredentialResponse" data-auto_prompt="false"></div>
 							<div class="g_id_signin" data-type="icon" data-shape="circle" data-theme="filled_black"
-								data-size="medium" style="display: inline-block;">
-							</div>
+								data-size="medium" style="display: inline-block;"></div>
 						</li>
+
 					</ul>
 				</div>
 				<p class="description description-second">ou insira suas informações a seguir:</p>
@@ -71,22 +68,18 @@
 				<h2 class="title title-second">Faça Login com:</h2>
 				<div class="social-media">
 					<ul class="list-social-media">
-						<a class="link-social-media" href="#">
-							<li class="item-social-media"><i class="fab fa-facebook-f"></i></li>
-						</a>
-						<!-- Botão personalizado com aparência antiga -->
+						<!-- Botão do Google -->
 						<li class="link-social-media" id="google-login-button" style="cursor: pointer;">
 							<div id="g_id_onload"
 								data-client_id="683123440343-21kie9quc4ge1cgbg854oi6ogbpl91ft.apps.googleusercontent.com"
-								data-callback="handleCredentialResponse" data-auto_prompt="false">
-							</div>
-
+								data-callback="handleCredentialResponse" data-auto_prompt="false"></div>
 							<div class="g_id_signin" data-type="icon" data-shape="circle" data-theme="filled_black"
-								data-size="medium" style="display: inline-block;">
-							</div>
+								data-size="medium" style="display: inline-block;"></div>
 						</li>
+
 					</ul>
 				</div>
+
 				<p class="description description-second"> ou insira suas informações abaixo:</p>
 				<form class="form" method="post" action="../php/logar.php">
 					<label class="label-input">
