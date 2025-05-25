@@ -36,7 +36,7 @@ $stmt->bind_param("iss", $id_usuario, $token, $expira_em);
 $stmt->execute();
 
 // Envia para o Google Apps Script
-$scriptUrl = "https://script.google.com/macros/s/AKfycbxaLMyxxLBVknyxnrb_-MoJzwRA_9wbssxfqQfFZxzFY3Y0q8l-FZz_dyVzVM5GBuWe5Q/exec";
+$scriptUrl = "https://script.google.com/macros/s/AKfycbxrHxZ_6KlCe8bSzKFTqCe1bY7GfuEOfO5YkpGPC4Zma6L3PvRwVJ2Vgy-RUyWU9ZUdXw/exec";
 
 $payload = json_encode([
     "email" => $email,
