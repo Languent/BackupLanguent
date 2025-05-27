@@ -1,0 +1,77 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.completion-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.checkmark {
+    font-size: 60px;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+#finishButton {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#finishButton:hover {
+    background-color: #219653;
+}
+
+@media (max-width: 600px) {
+    .completion-container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .checkmark {
+        font-size: 40px;
+    }
+
+    #finishButton {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
+}

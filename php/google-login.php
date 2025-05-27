@@ -91,7 +91,7 @@ $stmt->bind_result($num_preferencias);
 $stmt->fetch();
 $stmt->close();
 
-$redirect = (!empty($id_lingua) && $num_preferencias > 0) ? 'home.html' : 'SelecaoIdioma.html';
+$redirect = (!empty($id_lingua) && $num_preferencias > 0) ? 'home.html' : 'boasVindas.html';
 
 echo json_encode(['success' => true, 'redirect' => $redirect]);
 ?>

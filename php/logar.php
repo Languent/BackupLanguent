@@ -40,7 +40,7 @@ if ($result->num_rows === 1) {
 
         // Redirecionar com base nos dados do usuário
         if (is_null($id_lingua) || $tem_preferencias == 0) {
-            header('Location: ../html/SelecaoIdioma.html');
+            header('Location: ../html/boasVindas.html');
         } else {
             header('Location: ../html/home.html');
         }

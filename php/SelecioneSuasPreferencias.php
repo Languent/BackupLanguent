@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_stmt_close($stmt_insert);
         }
 
-        // Redirecionar para a página home
-        header('Location: ../html/home.html');
+        // Redirecionar para a página de configuração inicial concluida
+        header('Location: ../html/configuracaoConcluida.html');
         exit;
     } else {
         echo "Nenhuma categoria selecionada.";
