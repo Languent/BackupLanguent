@@ -42,11 +42,14 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding-top: 30px;
+    flex-wrap: wrap;
 }
 
 nav ul {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav ul a {
@@ -153,4 +156,97 @@ nav ul a:hover::after {
     justify-content: left;
     max-width: 75%;
     height: auto;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1024px) {
+    .banner-text h1 {
+        font-size: 64px;
+        padding: 0 20px;
+    }
+
+    .banner-text p {
+        font-size: 20px;
+    }
+
+    .faca-mais .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .faca-mais .faca-mais-text,
+    .faca-mais .faca-mais-img {
+        width: 100%;
+        padding: 20px;
+    }
+
+    nav ul a {
+        margin: 0 10px;
+        font-size: 12px;
+    }
+
+    .logoIMG {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-text {
+        margin: 100px 0;
+        padding: 0 30px;
+    }
+
+    .banner-text h1 {
+        font-size: 48px;
+    }
+
+    .banner-text p {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 36px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav ul a {
+        margin: 10px 0;
+    }
+
+    .logoIMG {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-text h1 {
+        font-size: 36px;
+    }
+
+    .banner-text p {
+        font-size: 16px;
+    }
+
+    .faca-mais .faca-mais-text ul li {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    .logoIMG {
+        max-width: 80%;
+    }
 }
