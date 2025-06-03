@@ -287,3 +287,44 @@ main {
     border-radius: 8px;
     display: block;
 }
+
+.avaliacao-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-like,
+.btn-dislike {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.btn-like:hover {
+    color: #28a745; /* verde */
+    transform: scale(1.1);
+}
+
+.btn-dislike:hover {
+    color: #dc3545; /* vermelho */
+    transform: scale(1.1);
+}
+
+.btn-like:active,
+.btn-dislike:active {
+    transform: scale(0.95);
+}
+
+.btn-like.active {
+    color: #28a745; /* verde ativo */
+}
+
+.btn-dislike.active {
+    color: #dc3545; /* vermelho ativo */
+}
