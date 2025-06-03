@@ -394,6 +394,52 @@ body.dark-theme .slider:before {
     background-color: #E0E7FF; /* Cor do "círculo" no dark theme */
 }
 
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: white;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.notification.success {
+    background-color: #28a745;
+}
+
+.notification.error {
+    background-color: #dc3545;
+}
+
+.notification.show {
+    animation: slideDownFade 0.4s ease forwards;
+    pointer-events: auto;
+}
+
+.notification.hidden {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+}
 
 /* Responsividade Aprimorada (mantida como antes) */
 @media (max-width: 900px) {
