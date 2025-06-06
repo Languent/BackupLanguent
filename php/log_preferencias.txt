@@ -1,6 +1,0 @@
-Array
-(
-    [0] => movies
-    [1] => music
-    [2] => technology
-)

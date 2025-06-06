@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -246,7 +248,7 @@ body {
     transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .checkbox-label .ball {
+.checkbox:checked+.checkbox-label .ball {
     transform: translateX(24px);
 }
 
@@ -256,6 +258,92 @@ main {
     height: 100vh;
     overflow-y: auto;
     background: #f4f4f4;
+}
+
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 8px;
+}
+
+.main-header h1 {
+    margin: 0;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+#search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+#search-button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #f8f8f8;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+#search-button .fa-search {
+    color: #333;
+}
+
+.content-filter-bar {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.filter-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .video-grid {
@@ -280,14 +368,101 @@ main {
 
 .video-item iframe {
     width: 100%;
-    height: 400px;
+    height: 400px; /* Restaurado para a altura original */
     border: none;
     border-radius: 8px;
     display: block;
 }
 
-/* Responsividade */
+.avaliacao-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+}
 
+.btn-like,
+.btn-dislike {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.btn-like:hover {
+    color: #28a745;
+    transform: scale(1.1);
+}
+
+.btn-dislike:hover {
+    color: #dc3545;
+    transform: scale(1.1);
+}
+
+.btn-like:active,
+.btn-dislike:active {
+    transform: scale(0.95);
+}
+
+.btn-like.active {
+    color: #28a745;
+}
+
+.btn-dislike.active {
+    color: #dc3545;
+}
+
+/* Estilos para o Skeleton Loading */
+.video-item-skeleton {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.skeleton {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
+.skeleton.skeleton-thumbnail {
+    width: 100%;
+    height: 400px; /* Restaurado para a altura original */
+    margin-bottom: 10px;
+}
+
+.skeleton.skeleton-bar {
+    width: 100%;
+    height: 40px;
+}
+
+
+/* Responsividade */
 @media (max-width: 1024px) {
     #sidebar.open-sidebar {
         min-width: 200px;
@@ -341,7 +516,7 @@ main {
         gap: 16px;
     }
 
-    .video-item iframe {
+    .video-item iframe, .skeleton.skeleton-thumbnail {
         height: 250px;
     }
 
@@ -352,51 +527,25 @@ main {
     #open_btn {
         display: none;
     }
-}
-
-@media (max-width: 480px) {
-    .video-item iframe {
-        height: 200px;
+    
+    .content-filter-bar {
+        justify-content: flex-start;
+        overflow-x: auto;
     }
 }
 
-.avaliacao-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid #e0e0e0;
-}
+@media (max-width: 480px) {
+    .video-item iframe, .skeleton.skeleton-thumbnail {
+        height: 200px;
+    }
 
-.btn-like,
-.btn-dislike {
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    color: #777;
-    transition: color 0.2s, transform 0.2s;
-}
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
 
-.btn-like:hover {
-    color: #28a745; /* verde */
-    transform: scale(1.1);
-}
-
-.btn-dislike:hover {
-    color: #dc3545; /* vermelho */
-    transform: scale(1.1);
-}
-
-.btn-like:active,
-.btn-dislike:active {
-    transform: scale(0.95);
-}
-
-.btn-like.active {
-    color: #28a745; /* verde ativo */
-}
-
-.btn-dislike.active {
-    color: #dc3545; /* vermelho ativo */
+    .filter-icon {
+        width: 18px;
+        height: 18px;
+    }
 }

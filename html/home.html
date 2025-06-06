@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/home.css">
-    <title>home</title>
 </head>
 <body>
     <nav id="sidebar">
@@ -46,16 +45,37 @@
     </nav>
 
     <main>
-        <h1>Languent</h1><br>
+        <div class="main-header">
+            <img src="../img/logo.jfif" alt="Languent Logo" class="main-logo">
+            <h1>Languent</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Pesquisar vídeos...">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="content-filter-bar">
+            <button class="filter-btn active" data-type="videos">
+                <span>Vídeos</span>
+            </button>
+            <button class="filter-btn" data-type="shorts">
+                <span>Shorts</span>
+            </button>
+            <button class="filter-btn" data-type="music">
+                <span>Músicas</span>
+            </button>
+            <button class="filter-btn" data-type="podcasts">
+                <span>Podcasts</span>
+            </button>
+        </div>
+
         <h3>Recomendações para você:</h3><br>
         <div class="video-grid" id="video-grid">
-            <!-- Vídeos serão carregados aqui -->
-        </div>
+            </div>
         <div id="sentinel" style="height: 1px;"></div>
     </main>
 
-    <!-- Scripts -->
-    <script src="../js/home_recommendations.js"></script>
+    <script src="../js/home_video_loader.js"></script>
     <script src="../js/home.js"></script>
     <script src="../js/home_avatar.js"></script>
 </body>
