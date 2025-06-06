@@ -51,6 +51,9 @@ html, body {
   margin-top: 80px;
   width: 100%;
   max-width: 500px;
+  display: flex; /* Adicionado para centralizar a grade */
+  flex-direction: column; /* Coloca os elementos em coluna */
+  align-items: center; /* Centraliza horizontalmente */
 }
 
 h1 {
@@ -59,44 +62,81 @@ h1 {
   color: #333;
 }
 
-/* Select estilizado */
-.select-wrapper {
-  position: relative;
+/* Estilos para a grade de seleção de idiomas */
+.language-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* 2 colunas ou mais */
+  gap: 15px; /* Espaçamento entre os cards */
   width: 100%;
+  max-width: 400px; /* Limita a largura da grade */
+  margin-bottom: 2rem; /* Espaçamento antes do botão */
 }
 
-select {
-  width: 100%;
-  font-size: 16px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.language-card {
   background: #fff;
-  appearance: none;
-  -webkit-appearance: none;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column; /* Bandeira em cima, texto embaixo */
+  align-items: center; /* Centraliza bandeira e texto */
+  gap: 10px; /* Espaço entre bandeira e texto */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Estilo para opções */
-select option {
-  padding-left: 10px;
+.language-card:hover {
+  border-color: #a0a0a0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.language-card.selected {
+  border-color: #007bff; /* Borda azul quando selecionado */
+  background-color: #e6f2ff; /* Fundo azul claro quando selecionado */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.language-card img {
+  width: 40px; /* Tamanho maior para a bandeira */
+  height: 28px; /* Mantém proporção próxima de bandeira */
+  object-fit: cover;
+  border: 1px solid #ddd; /* Borda sutil para a bandeira */
+  border-radius: 3px;
+}
+
+.language-card span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
 
 /* Botão */
 button {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 10px 30px;
-  font-size: 16px;
+  padding: 12px 30px; /* Padding maior para o botão */
+  font-size: 18px; /* Fonte maior para o botão */
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
-  margin-top: 15px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
   width: 100%;
+  max-width: 400px; /* Limita a largura do botão */
 }
 
-button:hover {
+button:hover:not(:disabled) { /* Apenas hover se não estiver desabilitado */
   background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* Responsividade */
@@ -109,9 +149,24 @@ button:hover {
     font-size: 20px;
   }
 
+  .language-selection-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajuste para telas menores */
+    max-width: 100%;
+  }
+
+  .language-card {
+    padding: 12px 8px;
+  }
+
+  .language-card img {
+    width: 35px;
+    height: 24px;
+  }
+
   button {
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px 20px;
+    max-width: 100%;
   }
 }
 
@@ -122,5 +177,20 @@ button:hover {
 
   h1 {
     font-size: 18px;
+    margin-bottom: 1rem;
+  }
+
+  .language-selection-grid {
+    grid-template-columns: 1fr 1fr; /* Duas colunas fixas em telas muito pequenas */
+    gap: 10px;
+  }
+
+  .language-card img {
+    width: 30px;
+    height: 20px;
+  }
+
+  .language-card span {
+    font-size: 14px;
   }
 }

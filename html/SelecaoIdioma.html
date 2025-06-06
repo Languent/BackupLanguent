@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seleção de Idioma - Languent</title>
-  <link rel="stylesheet" href="../css/Selecaoidioma.css">
+  <link rel="stylesheet" href="../css/Selecaoidioma.css" />
 </head>
 <body>
   <div class="container">
@@ -14,18 +14,36 @@
     <div class="content">
       <h1>Que língua você tem interesse em aprender?</h1>
       <form method="post" action="../php/SelecaoIdioma.php">
-        <div class="select-wrapper">
-          <select name="idioma" id="idioma">
-            <option value="1" data-img="../img/united-states.png">Inglês</option>
-            <option value="2" data-img="../img/spain.png">Espanhol</option>
-            <option value="4" data-img="../img/france.png">Francês</option>
-            <option value="3" data-img="../img/italy.png">Italiano</option>
-          </select>
+        
+        <div class="language-selection-grid">
+          <div class="language-card" data-value="1">
+            <img src="../img/united-states.png" alt="Bandeira dos Estados Unidos" />
+            <span>Inglês</span>
+          </div>
+          
+          <div class="language-card" data-value="2">
+            <img src="../img/spain.png" alt="Bandeira da Espanha" />
+            <span>Espanhol</span>
+          </div>
+          
+          <div class="language-card" data-value="4">
+            <img src="../img/france.png" alt="Bandeira da França" />
+            <span>Francês</span>
+          </div>
+          
+          <div class="language-card" data-value="3">
+            <img src="../img/italy.png" alt="Bandeira da Itália" />
+            <span>Italiano</span>
+          </div>
         </div>
-        <button type="submit">Avançar</button>
+
+        <input type="hidden" name="idioma" id="idioma" value="" />
+
+        <button type="submit" id="nextButton" disabled>Avançar</button>
       </form>
     </div>
   </div>
+  
   <script src="../js/Selecaoidioma.js"></script>
 </body>
 </html>

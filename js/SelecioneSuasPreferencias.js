@@ -25,15 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
       // Habilita o botão apenas se houver pelo menos 3 categorias selecionadas
       if (selectedCategories.length >= 3) {
         nextStepButton.disabled = false;
+        // Não é mais necessário adicionar/remover a classe 'enabled' explicitamente
+        // pois o CSS lida com o estado 'disabled' no botão.
       } else {
         nextStepButton.disabled = true;
       }
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Verifica se o usuário está logado e se pode acessar a home
+  // Verifica se o usuário está logado e se pode acessar a página
   fetch('../php/verificar_sessao.php')
       .then(response => response.json())
       .then(data => {
@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
                       window.location.href = '../html/Selecaoidioma.html';
                       return;
                   }
-              
+                  // Se chegou aqui e ainda não pode avançar, mas o idioma está definido,
+                  // significa que está na página de preferências, então não precisa de outro redirecionamento
               }
               // Se sessão ativa e pode avançar: não faz nada (usuário segue normalmente)
           } else {
@@ -60,4 +61,3 @@ document.addEventListener('DOMContentLoaded', function () {
           window.location.href = '../html/login.html';
       });
 });
-

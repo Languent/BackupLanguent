@@ -60,24 +60,28 @@ p {
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .header-container h1 {
     font-size: 2rem;
     margin: 0;
-    flex: 1;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .logo-img {
-    max-height: 80px;
+    height: 80px;
     width: auto;
     border-radius: 8px;
-    flex-shrink: 0;
+    margin-left: 0;
 }
 
 #termsCheckbox {
@@ -104,6 +108,7 @@ p {
     background-color: #2980b9;
 }
 
+/* Responsivo */
 
 @media (max-width: 768px) {
     .welcome-container {

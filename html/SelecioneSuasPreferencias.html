@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/SelecioneSuasPreferencias.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="../js/SelecioneSuasPreferencias.js" defer></script>
   <title>Seleção de Preferências</title>
 </head>
@@ -15,42 +16,45 @@
   </header>
 
   <main>
-    <p class="instruction-text">Escolha pelo menos 3 categorias de sua preferência:</p>
+    <h1 class="main-title">Personalize sua experiência!</h1>
+    <p class="instruction-text">Escolha pelo menos 3 categorias de sua preferência para começar:</p>
 
     <div class="container">
       <div class="content-grid">
-        <!-- Categorias de conteúdo -->
-        <div class="content-item" data-category="1">
-          <img src="../img/esportes.png" alt="Esportes">
-          <div class="caption">Esportes</div>
+        <div class="content-item" data-category="8">
+          <img src="../img/icone_natureza.png" alt="Natureza">
+          <div class="caption">Natureza</div>
         </div>
         <div class="content-item" data-category="2">
-          <img src="../img/cinema.png" alt="Cinema">
+          <img src="../img/icone_cinema.png" alt="Cinema">
           <div class="caption">Cinema</div>
         </div>
         <div class="content-item" data-category="3">
-          <img src="../img/musica.png" alt="Música">
+          <img src="../img/icone_musica.png" alt="Música">
           <div class="caption">Música</div>
         </div>
         <div class="content-item" data-category="4">
-          <img src="../img/tecnologia.png" alt="Tecnologia">
+          <img src="../img/icone_tecnologia.png" alt="Tecnologia">
           <div class="caption">Tecnologia</div>
         </div>
         <div class="content-item" data-category="5">
-          <img src="../img/gastronomia.png" alt="Gastronomia">
+          <img src="../img/icone_gastronomia.png" alt="Gastronomia">
           <div class="caption">Gastronomia</div>
         </div>
         <div class="content-item" data-category="6">
-          <img src="../img/literatura.png" alt="Literatura">
+          <img src="../img/icone_literatura.png" alt="Literatura">
           <div class="caption">Literatura</div>
         </div>
         <div class="content-item" data-category="7">
-          <img src="../img/arte.png" alt="Arte">
+          <img src="../img/icone_arte.png" alt="Arte">
           <div class="caption">Arte</div>
+        </div>
+        <div class="content-item" data-category="1">
+          <img src="../img/icone_esportes.png" alt="Esportes">
+          <div class="caption">Esportes</div>
         </div>
       </div>
 
-      <!-- Formulário para envio das preferências -->
       <form id="preferencesForm" method="POST" action="../php/SelecioneSuasPreferencias.php">
         <input type="hidden" name="selectedCategories" id="selectedCategoriesInput">
         <button id="next-step" type="submit" disabled>Próximo</button>

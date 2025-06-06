@@ -37,7 +37,8 @@ $categoria_map = [
     'technology' => '28',
     'gastronomy' => '26',
     'literature' => '24',
-    'art' => '27'
+    'art' => '27',
+    'nature' => '15'
 ];
 
 if (!isset($categoria_map[$tema])) {
