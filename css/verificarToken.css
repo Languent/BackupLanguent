@@ -1,42 +1,60 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #f9f9f9;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
 }
 
+/* Container do formulário */
 .container {
   background: #fff;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
   max-width: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  color: #333;
+  font-size: 1.5rem;
 }
 
 form {
   width: 100%;
 }
 
-input[type="text"], button {
+/* Campos de entrada e botão */
+input[type="text"],
+button {
   width: 100%;
   padding: 0.8rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-  box-sizing: border-box;
   font-size: 1rem;
+}
+
+input[type="text"]:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 button {
@@ -45,13 +63,46 @@ button {
   border: none;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #2563eb;
 }
 
+/* Mensagem de retorno */
 #mensagem {
   text-align: center;
   font-size: 0.95rem;
+  color: #444;
+  margin-top: 0.5rem;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  input[type="text"],
+  button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
 }
