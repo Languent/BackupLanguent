@@ -22,6 +22,7 @@ body {
     width: 100%;
     max-width: 450px;
     margin: 1rem;
+    box-sizing: border-box;
 }
 
 /* Título */
@@ -95,6 +96,7 @@ body {
 .login-link {
     text-align: center;
     color: #7f8c8d;
+    margin-top: 1rem;
 }
 
 .login-link a {
@@ -130,14 +132,13 @@ body {
     text-align: center;
 }
 
-/* Mensagem */
+/* Mensagem flutuante */
 #msg {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
-  
     display: none;
     padding: 15px 25px;
     border-radius: 8px;
@@ -148,35 +149,59 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     opacity: 1;
     transition: opacity 1s ease;
-  }
-  
-  /* Tipos */
-  .msg-success {
+}
+
+.msg-success {
     background-color: #d0f0c0;
     color: #2e7d32;
     border: 1px solid #a5d6a7;
-  }
-  
-  .msg-error {
+}
+
+.msg-error {
     background-color: #ffebee;
     color: #c62828;
     border: 1px solid #ef9a9a;
-  }
-  
-  /* Classe de animação */
-  .fade-out {
+}
+
+.fade-out {
     opacity: 0;
-  }
-  
-  
-/* Responsividade */
-@media (max-width: 480px) {
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
     .recovery-container {
-        padding: 1.5rem;
+        padding: 1.8rem;
         margin: 1rem;
     }
 
     .recovery-container h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .recovery-container {
+        padding: 1.5rem;
+        margin: 0.5rem;
+    }
+
+    .recovery-container h1 {
+        font-size: 1.4rem;
+    }
+
+    .form-group input[type="email"],
+    .recovery-button {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+    }
+
+    .login-link {
+        font-size: 0.9rem;
+    }
+
+    #msg {
+        font-size: 14px;
+        padding: 12px 20px;
     }
 }
