@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +10,16 @@
     font-family: 'Inter', sans-serif;
 }
 
-body {
-    background-color: #4169E1;
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    background-color: #4169E1;
+    color: #000;
+}
+
+/* Seções e espaçamento */
 section, footer {
     padding: 54px 0;
 }
@@ -31,12 +38,14 @@ p {
     padding: 0 5%;
 }
 
+/* Header com imagem */
 header {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
 }
 
+/* Navegação */
 nav {
     display: flex;
     align-items: center;
@@ -55,29 +64,31 @@ nav ul a {
     text-transform: uppercase;
     font-size: 14px;
     display: block;
+    position: relative;
 }
 
-nav ul a:not(.btn):after {
+nav ul a:not(.btn)::after {
     content: "";
     background-color: #4f9cf9;
     height: 3px;
     width: 0%;
     display: block;
     margin: 0 auto;
-    transition: 0.3s;
+    transition: width 0.3s ease;
 }
 
 nav ul a:hover::after {
     width: 100%;
 }
 
+/* Banner principal */
 .banner {
     display: flex;
     justify-content: center;
 }
 
 .banner-text {
-    margin: 150px;
+    margin: 150px 0;
     text-align: center;
     padding: 0 90px;
 }
@@ -94,6 +105,7 @@ nav ul a:hover::after {
     margin: 18px 0;
 }
 
+/* Seção Faça Mais */
 .faca-mais {
     background-color: #eff6fc;
 }
@@ -101,10 +113,12 @@ nav ul a:hover::after {
 .faca-mais .container {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .faca-mais .faca-mais-text {
-    width: 50%;
+    flex: 1 1 400px;
     padding: 0 40px;
 }
 
@@ -131,7 +145,7 @@ nav ul a:hover::after {
 }
 
 .faca-mais .faca-mais-img {
-    width: 50%;
+    flex: 1 1 400px;
 }
 
 .faca-mais .faca-mais-img img {
@@ -140,6 +154,7 @@ nav ul a:hover::after {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Rodapé */
 .footer {
     background-color: #2e4d7b;
     padding: 20px 0;
@@ -148,9 +163,53 @@ nav ul a:hover::after {
     font-size: 14px;
 }
 
+/* Logo */
 .logoIMG {
     display: flex;
     justify-content: left;
     max-width: 75%;
     height: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .banner-text {
+        padding: 0 20px;
+        margin: 80px 0;
+    }
+
+    .banner .banner-text h1 {
+        font-size: 48px;
+    }
+
+    .banner .banner-text p {
+        font-size: 18px;
+    }
+
+    .faca-mais .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .faca-mais .faca-mais-text,
+    .faca-mais .faca-mais-img {
+        padding: 0;
+    }
+
+    .faca-mais .faca-mais-text h3 {
+        font-size: 40px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul a {
+        margin: 10px 0;
+    }
 }
