@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/home.css">
+    <title>Languent Home</title>
 </head>
 <body>
     <nav id="sidebar">
@@ -16,32 +17,17 @@
                     <input type="file" id="fileInput" style="display: none;" accept="image/*">
                 </div>
                 <p id="user_infos">
-                    <span class="item-description" id="nome"> Nome do usuario</span>
+                    <span class="item-description" id="nome">Carregando...</span>
                     <span class="item-description">Estudante</span>
                 </p>
-            </div>            
+            </div>
             <ul id="side_items">
-                <li class="side-item">
-                    <a href="#"><i class="fa-solid fa-bell"></i> <span class="item-description">Notificações</span></a>
-                </li>
-                <li class="side-item">
-                    <a href="settings.html"><i class="fa-solid fa-gear"></i> <span class="item-description">Configurações</span></a>
-                </li>
+                <li class="side-item"><a href="#"><i class="fa-solid fa-bell"></i><span class="item-description">Notificações</span></a></li>
+                <li class="side-item"><a href="settings.html"><i class="fa-solid fa-gear"></i><span class="item-description">Configurações</span></a></li>
             </ul>
             <button id="open_btn"><i id="open_btn_icon" class="fa-solid fa-chevron-right"></i></button>
         </div>
-        <div id="logout">
-            <button id="logout_btn" onclick="location.href='../php/logout.php'"><i class="fa-solid fa-right-from-bracket"></i>
-                <span class="item-description">Logout</span></button>
-        </div>
-        <div>
-            <input type="checkbox" class="checkbox" id="checkbox">
-            <label for="checkbox" class="checkbox-label">
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-                <span class="ball"></span>
-            </label>
-        </div>
+        <div id="logout"><button id="logout_btn" onclick="location.href='../php/logout.php'"><i class="fa-solid fa-right-from-bracket"></i><span class="item-description">Logout</span></button></div>
     </nav>
 
     <main>
@@ -55,24 +41,18 @@
         </div>
         
         <div class="content-filter-bar">
-            <button class="filter-btn active" data-type="videos">
-                <span>Vídeos</span>
-            </button>
-            <button class="filter-btn" data-type="shorts">
-                <span>Shorts</span>
-            </button>
-            <button class="filter-btn" data-type="music">
-                <span>Músicas</span>
-            </button>
-            <button class="filter-btn" data-type="podcasts">
-                <span>Podcasts</span>
-            </button>
+            <button class="filter-btn active" data-type="videos"><span>Vídeos</span></button>
+            <button class="filter-btn" data-type="shorts"><span>Shorts</span></button>
+            <button class="filter-btn" data-type="music"><span>Músicas</span></button>
+            <button class="filter-btn" data-type="podcasts"><span>Podcasts</span></button>
         </div>
 
-        <h3>Recomendações para você:</h3><br>
-        <div class="video-grid" id="video-grid">
-            </div>
-        <div id="sentinel" style="height: 1px;"></div>
+        <h3 id="main-title">Recomendações para você:</h3><br>
+        <div class="video-grid" id="video-grid"></div>
+
+        <div class="pagination-container" id="pagination-controls">
+            <button id="load-more-btn" class="action-btn">Carregar Mais Vídeos</button>
+        </div>
     </main>
 
     <script src="../js/home_video_loader.js"></script>
