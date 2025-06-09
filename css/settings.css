@@ -1,53 +1,69 @@
 /* settings.css */
 
-/* Definições de cores para o TEMA CLARO (padrão) */
+/* TEMA CLARO (padrão) */
 :root {
     --color-body-background: white;
     --color-card-background: #c5dbf5;
-    
+
     --color-primary-blue: #4169E1;
     --color-primary-blue-dark: #3553C0;
-    
+
     --color-accent-blue: #4f9cf9;
-    
+
     --color-text-main: #333333;
     --color-text-secondary: #666666;
     --color-input-border: #BBBBBB;
-    
+
     --color-disabled-bg: #E0E0E0;
     --color-disabled-text: #A0A0A0;
-    
+
     --color-shadow: rgba(0, 0, 0, 0.08);
 
-    /* Tipografia (Mantida) */
-    --font-family-primary: 'Inter', sans-serif; 
+    /* Tipografia */
+    --font-family-primary: 'Inter', sans-serif;
     --font-size-base: 16px;
-    --font-size-large: 1.15rem; /* Levemente ajustado para 18.4px */
-    --font-size-xl: 2.2rem;     /* Aumentado para o título principal */
-    --font-size-xxl: 2.8rem;    /* Novo para o h1 da página */
+    --font-size-large: 1.15rem;
+    --font-size-xl: 2.2rem;
+    --font-size-xxl: 2.8rem;
 }
 
-/* Definições de cores para o TEMA ESCURO */
+/* Fallback: Tema escuro automático via sistema */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-body-background: #1A1A2E;
+        --color-card-background: #252D4A;
+        --color-primary-blue: #4169E1;
+        --color-primary-blue-dark: #3553C0;
+        --color-accent-blue: #4f9cf9;
+        --color-text-main: #F1F5FF;
+        --color-text-secondary: #CBD5E1;
+        --color-input-border: #4A5568;
+        --color-disabled-bg: #4A5568;
+        --color-disabled-text: #94A3B8;
+        --color-shadow: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* TEMA ESCURO ativado manualmente */
 body.dark-theme {
-    --color-body-background: #1A1A2E; /* Azul bem escuro */
-    --color-card-background: #252D4A; /* Um pouco mais claro que o body para o container */
-    
-    --color-primary-blue: #4169E1; /* Pode manter o mesmo azul vibrante */
-    --color-primary-blue-dark: #3553C0; 
-    
-    --color-accent-blue: #4f9cf9; /* Pode manter o mesmo azul claro */
-    
-    --color-text-main: #E0E7FF;   /* Texto branco azulado */
-    --color-text-secondary: #A0AEC0; /* Texto secundário ligeiramente mais escuro */
-    --color-input-border: #4A5568; /* Borda de inputs em cinza escuro */
-    
+    --color-body-background: #1A1A2E;
+    --color-card-background: #252D4A;
+    --color-primary-blue: #4169E1;
+    --color-primary-blue-dark: #3553C0;
+    --color-accent-blue: #4f9cf9;
+    --color-text-main: #F1F5FF;
+    --color-text-secondary: #CBD5E1;
+    --color-input-border: #4A5568;
     --color-disabled-bg: #4A5568;
     --color-disabled-text: #94A3B8;
-    
     --color-shadow: rgba(0, 0, 0, 0.4);
 }
 
 /* Base Styling */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--color-body-background);
     color: var(--color-text-main);
@@ -58,26 +74,25 @@ body {
     justify-content: center;
     min-height: 100vh;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para tema */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .main-wrapper {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 3rem 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Estilo para o Cabeçalho da Página */
 .page-header {
     width: 100%;
     text-align: center;
     margin-bottom: 50px;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--color-input-border); /* Usa variável para borda */
+    border-bottom: 1px solid var(--color-input-border);
 }
 
 .page-title {
@@ -94,41 +109,39 @@ body {
     margin: 0 auto;
 }
 
-/* Container principal */
 .container {
     max-width: 800px;
     width: 100%;
     background-color: var(--color-card-background);
-    padding: 50px;
+    padding: 3rem;
     border-radius: 18px;
     box-shadow: 0 15px 40px var(--color-shadow);
     box-sizing: border-box;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para tema */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .title {
-    margin-bottom: 35px;
+    margin-bottom: 2.2rem;
     font-size: var(--font-size-xl);
     font-weight: 700;
     color: var(--color-accent-blue);
     text-align: center;
     letter-spacing: 0.03em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.03); /* Mantido para tema claro */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
-/* Transição de sombra para tema escuro */
 body.dark-theme .title {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section {
-    margin-bottom: 35px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Borda padrão para tema claro */
+    margin-bottom: 2.2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 body.dark-theme .section {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borda para tema escuro */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .section:last-child {
@@ -139,7 +152,7 @@ body.dark-theme .section {
 
 .section-title {
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     font-size: var(--font-size-large);
     font-weight: 600;
     color: var(--color-text-main);
@@ -158,8 +171,8 @@ body.dark-theme .section {
     gap: 18px;
 }
 
-/* Estilo para Custom Radio Buttons */
-.custom-radio {
+.custom-radio,
+.custom-checkbox {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -168,11 +181,13 @@ body.dark-theme .section {
     transition: color 0.2s ease;
 }
 
-.custom-radio input[type="radio"] {
+.custom-radio input[type="radio"],
+.custom-checkbox input[type="checkbox"] {
     display: none;
 }
 
-.radio-checkmark {
+.radio-checkmark,
+.checkbox-checkmark {
     width: 24px;
     height: 24px;
     border: 2px solid var(--color-input-border);
@@ -184,7 +199,11 @@ body.dark-theme .section {
     flex-shrink: 0;
     transition: all 0.2s ease;
     position: relative;
-    background-color: var(--color-body-background); /* Fundo branco/escuro do checkmark */
+    background-color: var(--color-body-background);
+}
+
+.checkbox-checkmark {
+    border-radius: 6px;
 }
 
 .radio-checkmark::after {
@@ -198,87 +217,43 @@ body.dark-theme .section {
     transition: all 0.2s ease;
 }
 
-.custom-radio input[type="radio"]:checked + .radio-checkmark {
-    border-color: var(--color-primary-blue);
-    background-color: var(--color-body-background);
-}
-
-.custom-radio input[type="radio"]:checked + .radio-checkmark::after {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.custom-radio:hover .radio-checkmark {
-    border-color: var(--color-primary-blue);
-}
-
-.custom-radio:hover {
-    color: var(--color-text-main);
-}
-
-
-/* Estilo para Custom Checkboxes */
-.custom-checkbox {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
-    transition: color 0.2s ease;
-}
-
-.custom-checkbox input[type="checkbox"] {
-    display: none;
-}
-
-.checkbox-checkmark {
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--color-input-border);
-    border-radius: 6px;
-    margin-right: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-    position: relative;
-    background-color: var(--color-body-background);
-}
-
 .checkbox-checkmark::after {
     content: '✔';
     font-size: 16px;
-    color: var(--color-text-main); /* Checkmark em branco/escuro */
+    color: var(--color-text-main);
     opacity: 0;
     transform: scale(0.5);
     transition: all 0.2s ease;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark {
-    background-color: var(--color-primary-blue);
-    border-color: var(--color-primary-blue);
-}
-
+.custom-radio input[type="radio"]:checked + .radio-checkmark::after,
 .custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark::after {
     opacity: 1;
     transform: scale(1);
 }
 
+.custom-radio input[type="radio"]:checked + .radio-checkmark,
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-checkmark {
+    background-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue);
+}
+
+.custom-radio:hover .radio-checkmark,
 .custom-checkbox:hover .checkbox-checkmark {
     border-color: var(--color-primary-blue);
 }
 
+.custom-radio:hover,
 .custom-checkbox:hover {
     color: var(--color-text-main);
 }
 
-
+/* Botão principal */
 button#confirmButton {
     display: block;
     width: 100%;
-    padding: 18px 0;
-    margin-top: 50px;
+    padding: 1.1rem 0;
+    margin-top: 3rem;
     background-color: var(--color-primary-blue);
     color: white;
     font-weight: 700;
@@ -302,7 +277,7 @@ button#confirmButton:disabled {
 button#confirmButton:not(:disabled):hover {
     background-color: var(--color-primary-blue-dark);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px var(--color-shadow); /* Usa a variável de sombra do tema atual */
+    box-shadow: 0 10px 20px var(--color-shadow);
 }
 
 button#confirmButton:not(:disabled):active {
@@ -310,14 +285,20 @@ button#confirmButton:not(:disabled):active {
     box-shadow: 0 5px 10px var(--color-shadow);
 }
 
-/* Estilo do Toggle Switch */
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--color-primary-blue);
+    outline-offset: 2px;
+}
+
+/* Toggle Switch */
 .theme-switcher {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Espaçamento entre o texto e o switch */
-    margin-bottom: 25px; /* Espaço abaixo do switch */
-    color: var(--color-text-main); /* Cor do texto "Tema Claro/Escuro" */
+    gap: 15px;
+    margin-bottom: 25px;
+    color: var(--color-text-main);
 }
 
 .switch {
@@ -327,7 +308,6 @@ button#confirmButton:not(:disabled):active {
     height: 34px;
 }
 
-/* Esconde o checkbox HTML padrão */
 .switch input {
     opacity: 0;
     width: 0;
@@ -341,9 +321,9 @@ button#confirmButton:not(:disabled):active {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--color-input-border); /* Cor de fundo do slider inativo */
-    -webkit-transition: .4s;
+    background-color: var(--color-input-border);
     transition: .4s;
+    border-radius: 34px;
 }
 
 .slider:before {
@@ -353,47 +333,28 @@ button#confirmButton:not(:disabled):active {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white; /* Cor do "círculo" do slider */
-    -webkit-transition: .4s;
+    background-color: white;
     transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: var(--color-primary-blue); /* Cor de fundo do slider ativo */
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px var(--color-primary-blue);
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
     border-radius: 50%;
 }
 
-/* Cor do slider em tema escuro */
-body.dark-theme .slider {
-    background-color: #666666; /* Um cinza mais escuro para inativo no dark theme */
-}
-
-body.dark-theme input:checked + .slider {
+input:checked + .slider {
     background-color: var(--color-primary-blue);
 }
 
-body.dark-theme .slider:before {
-    background-color: #E0E7FF; /* Cor do "círculo" no dark theme */
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
 
+body.dark-theme .slider {
+    background-color: #666666;
+}
+
+body.dark-theme .slider:before {
+    background-color: #E0E7FF;
+}
+
+/* Notificações */
 @keyframes slideDownFade {
     from {
         opacity: 0;
@@ -441,7 +402,7 @@ body.dark-theme .slider:before {
     transform: translate(-50%, -20px);
 }
 
-/* Responsividade Aprimorada (mantida como antes) */
+/* Responsividade */
 @media (max-width: 900px) {
     .main-wrapper {
         padding: 30px 15px;
@@ -450,7 +411,7 @@ body.dark-theme .slider:before {
         font-size: var(--font-size-xl);
     }
     .container {
-        padding: 35px;
+        padding: 2.5rem;
     }
 }
 
@@ -468,7 +429,7 @@ body.dark-theme .slider:before {
         font-size: var(--font-size-base);
     }
     .container {
-        padding: 25px;
+        padding: 1.5rem;
         border-radius: 12px;
     }
     .title {
