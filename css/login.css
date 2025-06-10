@@ -18,10 +18,11 @@ body {
     background-color: #fff;
     border-radius: 15px;
     width: 960px;
-    height: 50%;
+    min-height: 500px; /* <--- CORREÇÃO AQUI */
     justify-content: space-between;
     align-items: center;
     position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 .content::before {
     content: "";

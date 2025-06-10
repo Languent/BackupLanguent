@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* --- PALETA DE CORES E VARIÁVEIS GLOBAIS --- */
+:root {
+    --azul-principal: #3a79f0;
+    --azul-escuro: #1d3a78;
+    --branco: #ffffff;
+    --branco-gelo: #f8f9fa;
+    --cinza-texto: #6c757d;
+    --preto-suave: #212529;
+    --sombra-padrao: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--branco);
+    color: var(--preto-suave);
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* --- COMPONENTES REUTILIZÁVEIS --- */
+.btn {
+    background: var(--azul-principal);
+    color: var(--branco);
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background: var(--azul-escuro);
+    transform: scale(1.05);
+}
+
+.btn.animate-btn {
+    padding: 16px 40px;
+    font-weight: 600;
+    animation: animate-outline 1.5s ease-out infinite;
+}
+
+@keyframes animate-outline {
+    from {
+        outline: 0px solid rgba(58, 121, 240, 0.5);
+    }
+    to {
+        outline: 15px solid rgba(58, 121, 240, 0);
+    }
+}
+
+/* --- HEADER E NAVEGAÇÃO --- */
+header {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/background-azul.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--branco);
+    padding-bottom: 60px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 4%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a#id_home {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--branco);
+    font-weight: 600;
+}
+
+nav ul li a#id_home:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+nav ul li a:not(.btn):not(#id_home)::after {
+    content: "";
+    background: var(--branco);
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:not(.btn):not(#id_home):hover::after {
+    width: 80%;
+}
+
+nav .btn {
+    padding: 10px 25px;
+    border: 2px solid white;
+    background: transparent;
+}
+
+nav .btn:hover {
+    background: white;
+    color: var(--azul-principal);
+}
+
+
+/* --- BANNER --- */
+.banner {
+    padding-top: 60px;
+    text-align: center;
+}
+
+.logo-destaque {
+    margin-bottom: 30px;
+}
+
+.grande-logo {
+    max-width: 220px;
+    height: auto;
+}
+
+.banner .banner-text h1 {
+    font-size: 64px;
+    font-weight: 800;
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+    line-height: 1.1;
+    color: var(--branco);
+}
+
+.banner .banner-text p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    margin: 25px auto 45px auto;
+    max-width: 650px;
+    line-height: 1.7;
+}
+
+/* --- SEÇÕES DE CONTEÚDO ('FAÇA MAIS') --- */
+.faca-mais {
+    padding: 120px 0;
+}
+
+section.faca-mais:nth-of-type(odd) {
+    background-color: var(--branco-gelo);
+}
+
+.faca-mais .container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+/* CORREÇÃO AQUI: Centralização dos textos e botão */
+.faca-mais .faca-mais-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+}
+
+.faca-mais .faca-mais-text h3 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 25px;
+    color: var(--preto-suave);
+}
+
+.faca-mais .faca-mais-text p {
+    font-size: 18px;
+    color: var(--cinza-texto);
+    line-height: 1.8;
+    margin-bottom: 35px;
+    max-width: 500px; /* Limita a largura do parágrafo */
+}
+
+.faca-mais .faca-mais-text ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 25px;
+    max-width: 500px; /* Limita a largura da lista */
+    text-align: left; /* Alinha o texto da lista à esquerda */
+}
+
+.faca-mais .faca-mais-text ul li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 18px;
+    color: var(--cinza-texto);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.faca-mais .faca-mais-text ul li b {
+    color: var(--preto-suave);
+}
+
+.faca-mais .faca-mais-text ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    color: var(--azul-principal);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.faca-mais .faca-mais-img {
+    flex: 1;
+}
+
+.faca-mais .faca-mais-img img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--sombra-padrao);
+}
+
+.faca-mais-2 .container {
+    flex-direction: row-reverse;
+}
+
+/* --- SEÇÃO NOSSO TIME (DA PÁGINA INDEX) --- */
+.nosso-time {
+    padding: 100px 0;
+    text-align: center;
+    background-image: linear-gradient(135deg, rgba(29, 58, 120, 0.95) 0%, rgba(58, 121, 240, 0.9) 100%), url('../img/background-azul.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.nosso-time h3 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--branco);
+}
+
+.nosso-time > .container > p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 550px;
+    margin: 0 auto 60px auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.nosso-time .card-item {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 35px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nosso-time .card-item:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+}
+
+.nosso-time .card-item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 5px solid var(--branco);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.nosso-time .card-item .nome-user,
+.nosso-time .card-item .sobre-user,
+.nosso-time .card-item .estrelas i {
+    color: var(--preto-suave);
+}
+
+.nosso-time .card-item .nome-user {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.nosso-time .card-item .sobre-user {
+    font-size: 15px;
+    color: var(--cinza-texto);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.nosso-time .card-item .estrelas i {
+    color: #ffc107;
+    font-size: 20px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--preto-suave);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer .container p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer .container a {
+    color: var(--branco);
+    font-weight: 600;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .faca-mais .container, .faca-mais-2 .container {
+        flex-direction: column-reverse;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 0;
+        justify-content: center;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    .banner {
+        padding-top: 40px;
+    }
+
+    .logo-destaque {
+        margin-bottom: 20px;
+    }
+
+    .grande-logo {
+        max-width: 140px;
+    }
+
+    .banner .banner-text h1 {
+        font-size: 48px;
+    }
+
+    .faca-mais .faca-mais-text h3, .nosso-time h3 {
+        font-size: 40px;
+    }
+}

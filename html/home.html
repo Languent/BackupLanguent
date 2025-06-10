@@ -20,20 +20,52 @@
                     <span class="item-description" id="nome">Carregando...</span>
                     <span class="item-description">Estudante</span>
                 </p>
-            </div>
+            </div>            
             <ul id="side_items">
-                <li class="side-item"><a href="#"><i class="fa-solid fa-bell"></i><span class="item-description">Notificações</span></a></li>
-                <li class="side-item"><a href="settings.html"><i class="fa-solid fa-gear"></i><span class="item-description">Configurações</span></a></li>
+                <li class="side-item">
+                    <a href="home.html"><i class="fa-solid fa-house"></i> <span class="item-description">Início</span></a>
+                </li>
+                <li class="side-item" id="notifications-item">
+                    <a href="#" id="notifications-btn">
+                        <i class="fa-solid fa-bell"></i> 
+                        <span class="item-description">
+                            Notificações
+                            <span id="notification-count" class="notification-count" style="display: none;">0</span>
+                        </span>
+                    </a>
+                    <div id="notification-panel" class="notification-panel">
+                        <div class="panel-header">Notificações</div>
+                        <ul id="notification-list" class="notification-list">
+                            <li>Nenhuma notificação nova.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-item">
+                    <a href="settings.html"><i class="fa-solid fa-gear"></i> <span class="item-description">Configurações</span></a>
+                </li>
             </ul>
             <button id="open_btn"><i id="open_btn_icon" class="fa-solid fa-chevron-right"></i></button>
         </div>
-        <div id="logout"><button id="logout_btn" onclick="location.href='../php/logout.php'"><i class="fa-solid fa-right-from-bracket"></i><span class="item-description">Logout</span></button></div>
+        <div id="logout">
+            <button id="logout_btn" onclick="location.href='../php/logout.php'"><i class="fa-solid fa-right-from-bracket"></i>
+                <span class="item-description">Logout</span></button>
+        </div>
+        <div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="checkbox-label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <span class="ball"></span>
+            </label>
+        </div>
     </nav>
 
     <main>
-        <div class="main-header">
-            <img src="../img/logo.jfif" alt="Languent Logo" class="main-logo">
-            <h1>Languent</h1>
+         <div class="main-header">
+            <a href="home.html" class="header-link">
+                <img src="../img/logo.jfif" alt="Languent Logo" class="main-logo">
+                <h1>Languent</h1>
+            </a>
         </div>
         <div class="search-bar">
             <input type="text" id="search-input" placeholder="Pesquisar vídeos...">
@@ -58,5 +90,7 @@
     <script src="../js/home_video_loader.js"></script>
     <script src="../js/home.js"></script>
     <script src="../js/home_avatar.js"></script>
+    <script src="../js/dark_mode.js"></script> 
+    <script src="../js/notifications.js"></script> </body>
 </body>
 </html>

@@ -1,51 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- Font Awesome CDN -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-		integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-	<!-- CSS local -->
-	<link rel="stylesheet" href="../css/InfoRecomendacoes.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<link rel="stylesheet" href="../css/style.css">
 	<title>Languent - Recomendação de Conteúdos</title>
 </head>
-
 <body>
 
-	<header style="background-image: url('../img/Background-teste.png');">
-		<div class="container">
-			<nav>
-				<a href="index.html">
-					<img class="logoIMG" src="../img/logo-Fundo-png.png" alt="Logo">
-				</a>
-				<ul class="ul">
-					<a id="id_home" onclick="verificarSessaoERedirecionar()" href="#">Home</a>
-					<a href="InfoRecomendacoes.html">Conteúdos</a>
-					<a href="sobre.html">Sobre</a>
-					<a class="btn" href="login.html">Login</a>
-				</ul>
-			</nav>
-			<section class="banner">
-				<div class="banner-text">
-					<h1>Recomendação de Conteúdos</h1>
-					<p>Entenda como oferecemos sugestões personalizadas e descubra a variedade de materiais para sua jornada de aprendizado linguístico.</p>
-				</div>
-			</section>
-		</div>
-	</header>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="InfoRecomendacoes.html">Conteúdos</a></li>
+                <li><a id="id_home" onclick="verificarSessaoERedirecionar()" href="#">Home</a></li>
+                <li><a class="btn" href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <section class="banner">
+            <div class="logo-destaque"> <img src="../img/logo-Fundo-png.png" alt="Logo Grande" class="logo grande-logo">
+            </div>
+            <div class="banner-text">
+                <h1>Nossos Conteúdos</h1>
+                <p>Entenda como oferecemos sugestões personalizadas para sua jornada de aprendizado.</p>
+            </div>
+        </section>
+    </div>
+</header>
 
 	<section class="faca-mais">
 		<div class="container">
 			<div class="faca-mais-text">
-				<h3>Como Funciona a Recomendação de Conteúdos?</h3>
+				<h3>Como Funciona a Recomendação?</h3>
 				<p>
-					No Languent, nossa plataforma utiliza um sistema de recomendação baseado em suas preferências e interesses. A cada interação, entendemos melhor seu estilo de aprendizagem e seus conteúdos favoritos. Assim, oferecemos uma experiência personalizada, destacando materiais que combinam com seu perfil e seu nível de conhecimento.
+					No Languent, utilizamos um sistema de recomendação baseado em suas preferências e interesses para que a cada interação, entendamos melhor quais são os seus conteúdos favoritos. Assim, oferecemos uma experiência personalizada, destacando materiais que combinam com o seu perfil.
 				</p>
 			</div>
 			<div class="faca-mais-img">
@@ -54,7 +46,7 @@
 		</div>
 	</section>
 
-	<section class="faca-mais">
+	<section class="faca-mais faca-mais-2">
 		<div class="container">
 			<div class="faca-mais-img">
 				<img src="../img/AraraTv.png" alt="Tipos de Conteúdo">
@@ -65,21 +57,21 @@
 					Oferecemos uma ampla gama de recursos gratuitos para ajudar você a aprender um novo idioma:
 				</p>
 				<ul>
-					<li><b>Vídeos e Séries:</b> Aprenda através de entretenimento com legendas e diálogos autênticos.</li>
-					<li><b>Filmes:</b> Explore culturas e contextos variados enquanto desenvolve sua compreensão auditiva.</li>
+					<li><b>Vídeos Longos:</b> Aprenda através de entretenimento com legendas e diálogos autênticos.</li>
+					<li><b>Vídeos Curtos:</b> Explore contextos variados de forma rápida e intuitiva.</li>
 					<li><b>Músicas:</b> Melhore sua pronúncia e vocabulário de forma divertida.</li>
-					<li><b>Artigos e Atividades:</b> Pratique sua leitura e ganhe vocabulário com textos curtos e atividades dinâmicas.</li>
-					<li><b>Livros:</b> Leia obras de diversos gêneros para aprofundar seu entendimento do idioma.</li>
-					<li><b>Podcasts:</b> Escute conversas reais e aprenda com sotaques, expressões e contextos variados.</li>
+					<li><b>Podcasts:</b> Escute conversas reais e aprenda com sotaques e expressões variadas.</li>
 				</ul>
-				<p>Independentemente do seu nível ou estilo de aprendizagem, temos algo que combina com você!</p>
 			</div>
 		</div>
 	</section>
 
-	<!-- JS local -->
+	<footer>
+		<div class="container">
+			<p>&copy; 2025 Languent. Todos os direitos reservados.</p>
+		</div>
+	</footer>
+
 	<script type="text/javascript" src="../js/verificarLogin.js"></script>
-
 </body>
-
 </html>

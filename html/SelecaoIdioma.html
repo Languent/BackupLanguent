@@ -4,46 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seleção de Idioma - Languent</title>
-  <link rel="stylesheet" href="../css/Selecaoidioma.css" />
+  <link rel="stylesheet" href="../css/selecao-style.css" /> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="../js/Selecaoidioma.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <div class="top-bar">
-      <span class="brand">Languent</span>
+  <header>
+    <div class="logo-container">
+      <img src="../img/logo.jfif" alt="Logo do App" class="logo-img">
     </div>
-    <div class="content">
-      <h1>Que língua você tem interesse em aprender?</h1>
-      <form method="post" action="../php/SelecaoIdioma.php">
-        
-        <div class="language-selection-grid">
-          <div class="language-card" data-value="1">
-            <img src="../img/united-states.png" alt="Bandeira dos Estados Unidos" />
-            <span>Inglês</span>
-          </div>
-          
-          <div class="language-card" data-value="2">
-            <img src="../img/spain.png" alt="Bandeira da Espanha" />
-            <span>Espanhol</span>
-          </div>
-          
-          <div class="language-card" data-value="4">
-            <img src="../img/france.png" alt="Bandeira da França" />
-            <span>Francês</span>
-          </div>
-          
-          <div class="language-card" data-value="3">
-            <img src="../img/italy.png" alt="Bandeira da Itália" />
-            <span>Italiano</span>
-          </div>
-        </div>
+  </header>
+  
+  <main>
+    <h1 class="main-title">Qual idioma você quer aprender?</h1>
+    <p class="instruction-text">Escolha a língua que você deseja explorar em nossa plataforma.</p>
 
-        <input type="hidden" name="idioma" id="idioma" value="" />
+    <div class="card-container">
+      <form id="language-form" method="post" action="../php/SelecaoIdioma.php">
+          
+          <div class="grid-selecao">
+              <div class="item-selecao language-card" data-value="1">
+                  <img src="../img/united-states.png" alt="Bandeira dos Estados Unidos" />
+                  <div class="caption">Inglês</div>
+              </div>
+              
+              <div class="item-selecao language-card" data-value="2">
+                  <img src="../img/spain.png" alt="Bandeira da Espanha" />
+                  <div class="caption">Espanhol</div>
+              </div>
+              
+              <div class="item-selecao language-card" data-value="4">
+                  <img src="../img/france.jpg" alt="Bandeira da França" />
+                  <div class="caption">Francês</div>
+              </div>
+              
+              <div class="item-selecao language-card" data-value="3">
+                  <img src="../img/italy.png" alt="Bandeira da Itália" />
+                  <div class="caption">Italiano</div>
+              </div>
+          </div>
 
-        <button type="submit" id="nextButton" disabled>Avançar</button>
+          <input type="hidden" name="idioma" id="idioma" value="" />
+          <button id="next-step" type="submit">Avançar</button>
       </form>
     </div>
-  </div>
+  </main>
   
-  <script src="../js/Selecaoidioma.js"></script>
-</body>
+  </body>
 </html>

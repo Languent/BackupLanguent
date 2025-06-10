@@ -5,48 +5,45 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-		integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<link rel="stylesheet" href="../css/style.css">
 	<title>Languent</title>
 </head>
 
 <body>
 
-	<header style="background-image: url('../img/Background-teste.png');">
-		<div class="container">
-			<nav>
-				<a href="index.html">
-					<img src="../img/logo-Fundo-png.png" alt="Logo">
-				</a>
-				<ul class="ul">
-					<a id="id_home" onclick="verificarSessaoERedirecionar()" href="#">Home</a>
-					<a href="InfoRecomendacoes.html">Conteúdos</a>
-					<a href="sobre.html">Sobre</a>
-					<a class="btn" href="login.html">Login</a>
-				</ul>
-			</nav>
-			<section class="banner">
-				<div class="banner-text">
-					<h1>Languent</h1>
-					<p>Descubra recursos gratuitos para aprender novas línguas e abra seu mundo para novas culturas. Aprenda, explore e conecte-se tudo em um só lugar.</p>
-					<a href="InfoRecomendacoes.html" class="btn animate-btn">Nossos conteúdos</a>
-				</div>
-			</section>
-		</div>
-	</header>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="InfoRecomendacoes.html">Conteúdos</a></li>
+                <li><a id="id_home" onclick="verificarSessaoERedirecionar()" href="#">Home</a></li>
+                <li><a class="btn" href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <section class="banner">
+            <div class="logo-destaque"> <img src="../img/logo-Fundo-png.png" alt="Logo Grande" class="logo grande-logo">
+            </div>
+            <div class="banner-text">
+                <h1>Languent</h1>
+				<p>Descubra recursos gratuitos para aprender novas línguas e abra seu mundo para novas culturas. Aprenda, explore e conecte-se tudo em um só lugar.</p>
+            </div>
+        </section>
+    </div>
+</header>
 
-	<!-- Faca-mais -->
 	<section class="faca-mais">
 		<div class="container">
 			<div class="faca-mais-text">
-				<h3>Aprenda um novo idioma com a Languent!</h3>
+				<h3>Aprenda um novo idioma com o Languent!</h3>
 				<p>
-					Descubra o universo das línguas com a Languent! 
-					Acesse recursos gratuitos e de qualidade, e junte-se a uma comunidade de aprendizes entusiasmados. Aprender nunca foi tão fácil e acessível - comece sua jornada linguística agora!
+					Descubra o universo das línguas com o Languent!
+					Acesse recursos gratuitos e de qualidade! Aprender nunca foi tão fácil e acessível - comece sua
+					jornada linguística agora!
 				</p>
-				<a href="login.html" class="btn animate-btn">Comece já!</a>
+				<a href="login.html" class="btn">Comece já!</a>
 			</div>
 			<div class="faca-mais-img">
 				<img src="../img/area-2.png" alt="">
@@ -54,8 +51,7 @@
 		</div>
 	</section>
 
-	<!-- Faca-mais-2 -->
-	<section class="faca-mais">
+	<section class="faca-mais faca-mais-2">
 		<div class="container">
 			<div class="faca-mais-img">
 				<img src="../img/area-3.jpg" alt="">
@@ -63,108 +59,89 @@
 			<div class="faca-mais-text">
 				<h3>São várias formas para aprender uma nova língua!</h3>
 				<p>
-					Seja através de podcasts, cursos online, filmes, séries ou até mesmo livros, cada método traz uma experiência única. Encontre o seu caminho e torne-se um poliglota!
+					Seja através de videos longos, videos curtos, musicas ou podcasts cada método trará uma experiência
+					única. Encontre o seu caminho e continue sempre aprendendo!
 				</p>
-				<a href="login.html" class="btn animate-btn">Comece já!</a>
+				<a href="login.html" class="btn">Comece já!</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- Nosso Time -->
-	<section class="nosso-time" style="background-image: url('../img/Background-teste.png');">
+	<section class="nosso-time">
 		<div class="container">
 			<h3>Nosso Time</h3>
-			<p>Um pouco sobre nosso time inovador!</p>
+			<p>Um pouco sobre nosso time!</p>
 			<div class="cards">
-				<!-- Card user 1 -->
 				<div class="card-item">
 					<img src="../img/user-1.jpg" alt="PedroG">
 					<p class="nome-user">Pedro Gabriel</p>
-					<p class="sobre-user">Alguma coisa sobre Pedro Gabriel!</p>
+					<p class="sobre-user">Desenvolvedor Backend</p>
 					<div class="estrelas">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
-
-				<!-- Card user 2 -->
 				<div class="card-item">
 					<img src="../img/user-2.jpg" alt="GustavoP">
 					<p class="nome-user">Gustavo Paiva</p>
-					<p class="sobre-user">Alguma coisa sobre Gustavo Paiva!</p>
+					<p class="sobre-user">QA Tester</p>
 					<div class="estrelas">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
-
-				<!-- Card user 3 -->
 				<div class="card-item">
 					<img src="../img/user-3.jpg" alt="EricS">
 					<p class="nome-user">Eric Sena</p>
-					<p class="sobre-user">Alguma coisa sobre Eric Sena!</p>
+					<p class="sobre-user">Desenvolvedor Frontend</p>
 					<div class="estrelas">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
-
-				<!-- Card user 4 -->
 				<div class="card-item">
 					<img src="../img/user-4.jpg" alt="GeovaneS">
 					<p class="nome-user">Geovane Saraiva</p>
-					<p class="sobre-user">Alguma coisa sobre Geovane Saraiva!</p>
+					<p class="sobre-user">Analista de Negócios</p>
 					<div class="estrelas">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
-
-				<!-- Card user 5 -->
 				<div class="card-item">
 					<img src="../img/user-5.jpg" alt="HugoL">
 					<p class="nome-user">Hugo Leonardo</p>
-					<p class="sobre-user">Alguma coisa sobre Hugo Leonardo!</p>
+					<p class="sobre-user">Analista de Dados</p>
 					<div class="estrelas">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
-
-				<!-- Card user 5 -->
 				<div class="card-item">
 					<img src="../img/user-6.png" alt="PauloI">
 					<p class="nome-user">Paulo Israel</p>
-					<p class="sobre-user">Alguma coisa sobre Paulo Israel!</p>
+					<p class="sobre-user">DBA</p>
 					<div class="estrelas">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+							class="fa fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
 
-	<!-- Scripts -->
+	<footer>
+		<div class="container">
+			<p>&copy; 2025 Languent. Todos os direitos reservados.</p>
+		</div>
+	</footer>
+
 	<script type="text/javascript" src="../js/verificarLogin.js"></script>
 </body>
 

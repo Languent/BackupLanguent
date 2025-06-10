@@ -20,40 +20,32 @@ document.addEventListener('DOMContentLoaded', function () {
     function showSkeletons(isAppending) {
         elements.loadMoreBtn.disabled = true;
         elements.loadMoreBtn.textContent = 'Carregando...';
-
-        // Se não for para adicionar, limpa a grade antes
         if (!isAppending) {
             elements.videoGrid.innerHTML = '';
         }
-
-        // Adiciona 4 skeletons para indicar carregamento
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 8; i++) {
             const skeletonEl = document.createElement('div');
             skeletonEl.classList.add('video-item-skeleton');
-            skeletonEl.innerHTML = `<div class="skeleton skeleton-thumbnail"></div>`;
+            skeletonEl.innerHTML = `<div class="skeleton-thumbnail"></div>`;
             elements.videoGrid.appendChild(skeletonEl);
         }
     }
 
-    function removeSkeletons() {
-        elements.videoGrid.querySelectorAll('.video-item-skeleton').forEach(el => el.remove());
-        elements.loadMoreBtn.disabled = false;
-    }
-    
-    function renderVideos(data, isNew) {
-        removeSkeletons();
-        const { items, nextPageToken } = data;
-
-        // Se for uma nova busca, limpa a grade
+    // --- LÓGICA DE RENDERIZAÇÃO REVERTIDA PARA VERSÃO ESTÁVEL ---
+    function renderGrid(data, isNew) {
         if (isNew) {
             elements.videoGrid.innerHTML = '';
+        } else {
+            elements.videoGrid.querySelectorAll('.video-item-skeleton').forEach(el => el.remove());
         }
+
+        const { items, nextPageToken } = data;
+        state.pageToken = nextPageToken || '';
         
         if (!items || items.length === 0) {
             if (isNew) {
                 elements.videoGrid.innerHTML = `<p class="error-message">Nenhum vídeo encontrado. Tente outros filtros.</p>`;
             }
-            // Se não há mais itens, esconde o botão
             elements.loadMoreBtn.style.display = 'none';
             return;
         }
@@ -76,23 +68,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         elements.videoGrid.appendChild(fragment);
         
-        // Atualiza o estado do token e a visibilidade do botão
-        state.pageToken = nextPageToken || '';
         elements.loadMoreBtn.style.display = state.pageToken ? 'block' : 'none';
-        elements.loadMoreBtn.textContent = 'Carregar Mais Vídeos';
+        elements.loadMoreBtn.textContent = 'Carregar Mais';
+        elements.loadMoreBtn.disabled = false;
     }
 
     function fetchContent(isNew = false) {
         if (state.isLoading) return;
         state.isLoading = true;
         
-        // Se for uma nova busca, reseta o token. Se for para "carregar mais", usa o token salvo.
         const pageTokenForRequest = isNew ? '' : state.pageToken;
-        if (isNew) {
-            state.pageToken = '';
-        }
+        if (isNew) state.pageToken = '';
         
-        showSkeletons(!isNew);
+        showSkeletons(!isNew && pageTokenForRequest);
 
         const params = new URLSearchParams({
             mode: state.mode,
@@ -105,11 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(res => res.json())
             .then(data => {
                 if (data.error) throw new Error(data.error);
-                renderVideos(data, isNew);
+                renderGrid(data, isNew);
             })
             .catch(error => {
                 console.error('Falha ao buscar conteúdo:', error);
-                removeSkeletons();
                 elements.videoGrid.innerHTML = `<p class="error-message">Ocorreu um erro ao carregar os vídeos.</p>`;
             })
             .finally(() => { 
@@ -142,14 +129,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- LISTENERS ---
-    elements.loadMoreBtn.addEventListener('click', () => fetchContent(false)); // Carregar mais sempre adiciona
+    elements.loadMoreBtn.addEventListener('click', () => fetchContent(false));
 
     elements.searchButton.addEventListener('click', () => {
         state.mode = 'search';
         state.currentQuery = elements.searchInput.value.trim();
         elements.mainTitle.textContent = state.currentQuery ? `Resultados para: "${state.currentQuery}"` : 'Busca';
-        fetchContent(true); // Uma nova busca sempre limpa os resultados antigos
+        fetchContent(true);
     });
     elements.searchInput.addEventListener('keypress', e => e.key === 'Enter' && elements.searchButton.click());
 
@@ -162,11 +148,10 @@ document.addEventListener('DOMContentLoaded', function () {
             state.mode = 'recommendations';
             state.contentType = button.dataset.type;
             elements.mainTitle.textContent = 'Recomendações para você:';
-            fetchContent(true); // Trocar de aba sempre gera uma nova lista
+            fetchContent(true);
         });
     });
 
-    // Carregamento inicial
     Promise.all([
         fetch('../php/get_sessao.php').then(res => res.json()),
         fetch('../php/get_avaliacoes_usuario.php').then(res => res.json())
