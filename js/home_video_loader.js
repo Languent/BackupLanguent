@@ -18,33 +18,33 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     function showSkeletons(isAppending) {
-        elements.loadMoreBtn.disabled = true;
-        elements.loadMoreBtn.textContent = 'Carregando...';
         if (!isAppending) {
             elements.videoGrid.innerHTML = '';
         }
+        
+        // Controla o estado do botão "Carregar Mais"
+        elements.loadMoreBtn.disabled = true;
+        elements.loadMoreBtn.textContent = 'Carregando...';
+
+        // Cria os skeletons para feedback visual
         for (let i = 0; i < 8; i++) {
             const skeletonEl = document.createElement('div');
             skeletonEl.classList.add('video-item-skeleton');
-            skeletonEl.innerHTML = `<div class="skeleton-thumbnail"></div>`;
+            skeletonEl.innerHTML = `<div class="skeleton-thumbnail"></div><div class="skeleton-bar"></div>`;
             elements.videoGrid.appendChild(skeletonEl);
         }
     }
 
-    // --- LÓGICA DE RENDERIZAÇÃO REVERTIDA PARA VERSÃO ESTÁVEL ---
-    function renderGrid(data, isNew) {
-        if (isNew) {
-            elements.videoGrid.innerHTML = '';
-        } else {
-            elements.videoGrid.querySelectorAll('.video-item-skeleton').forEach(el => el.remove());
-        }
+    function renderGrid(data, isAppending) {
+        // Remove os skeletons antes de adicionar o conteúdo real
+        elements.videoGrid.querySelectorAll('.video-item-skeleton').forEach(el => el.remove());
 
         const { items, nextPageToken } = data;
         state.pageToken = nextPageToken || '';
         
         if (!items || items.length === 0) {
-            if (isNew) {
-                elements.videoGrid.innerHTML = `<p class="error-message">Nenhum vídeo encontrado. Tente outros filtros.</p>`;
+            if (elements.videoGrid.childElementCount === 0) {
+                 elements.videoGrid.innerHTML = `<p class="error-message">Nenhum vídeo encontrado. Tente outros filtros.</p>`;
             }
             elements.loadMoreBtn.style.display = 'none';
             return;
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const videoId = video.id;
             const videoEl = document.createElement('div');
             videoEl.classList.add('video-item');
+            videoEl.dataset.videoId = videoId; // Adiciona o ID para a correção de repetição
             videoEl.innerHTML = `
                 <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="avaliacao-container">
@@ -78,22 +79,35 @@ document.addEventListener('DOMContentLoaded', function () {
         state.isLoading = true;
         
         const pageTokenForRequest = isNew ? '' : state.pageToken;
-        if (isNew) state.pageToken = '';
+        if (isNew) {
+            state.pageToken = '';
+            // Limpa o grid apenas se for uma busca completamente nova (ex: troca de aba ou pesquisa)
+            elements.videoGrid.innerHTML = '';
+        }
         
-        showSkeletons(!isNew && pageTokenForRequest);
+        showSkeletons(isNew ? false : true);
+
+        // --- INÍCIO DA CORREÇÃO CONTRA REPETIÇÃO ---
+        // Coleta os IDs dos vídeos que já estão na tela para evitar duplicatas
+        const existingIds = isNew ? '' : Array.from(elements.videoGrid.querySelectorAll('.video-item'))
+                                              .map(el => el.dataset.videoId)
+                                              .join(',');
+        // --- FIM DA CORREÇÃO ---
 
         const params = new URLSearchParams({
             mode: state.mode,
             type: state.contentType,
             q: state.currentQuery,
-            pageToken: pageTokenForRequest
+            pageToken: pageTokenForRequest,
+            exclude_ids: existingIds // Envia os IDs para o backend
         });
 
         fetch(`../php/get_content.php?${params.toString()}`)
             .then(res => res.json())
             .then(data => {
                 if (data.error) throw new Error(data.error);
-                renderGrid(data, isNew);
+                // A função de renderização agora sempre anexa (isAppending = true), pois a limpeza é feita antes.
+                renderGrid(data, false); 
             })
             .catch(error => {
                 console.error('Falha ao buscar conteúdo:', error);
@@ -102,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .finally(() => { 
                 state.isLoading = false; 
                 elements.loadMoreBtn.disabled = false;
+                elements.loadMoreBtn.textContent = 'Carregar Mais';
             });
     }
 
@@ -134,30 +149,35 @@ document.addEventListener('DOMContentLoaded', function () {
     elements.searchButton.addEventListener('click', () => {
         state.mode = 'search';
         state.currentQuery = elements.searchInput.value.trim();
-        elements.mainTitle.textContent = state.currentQuery ? `Resultados para: "${state.currentQuery}"` : 'Busca';
+        if (!state.currentQuery) return;
+        elements.mainTitle.textContent = `Resultados para: "${state.currentQuery}"`;
         fetchContent(true);
     });
     elements.searchInput.addEventListener('keypress', e => e.key === 'Enter' && elements.searchButton.click());
 
     elements.filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            if (button.classList.contains('active')) return;
+            if (button.classList.contains('active') && state.mode === 'recommendations') return;
             elements.filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
             state.mode = 'recommendations';
             state.contentType = button.dataset.type;
+            state.currentQuery = ''; // Limpa a query de busca ao voltar para recomendações
             elements.mainTitle.textContent = 'Recomendações para você:';
             fetchContent(true);
         });
     });
 
+    // Carregamento inicial da página
     Promise.all([
         fetch('../php/get_sessao.php').then(res => res.json()),
         fetch('../php/get_avaliacoes_usuario.php').then(res => res.json())
     ]).then(([sessionData, ratingsData]) => {
-        document.getElementById('nome').textContent = sessionData.nome || 'Usuário';
+        if(document.getElementById('nome')) {
+            document.getElementById('nome').textContent = sessionData.nome || 'Usuário';
+        }
         state.userRatings = ratingsData.avaliacoes || {};
-        fetchContent(true);
+        fetchContent(true); // Faz a primeira busca de conteúdo
     });
 });

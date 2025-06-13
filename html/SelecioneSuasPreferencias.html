@@ -1,121 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seleção de Preferências</title>
-    <link rel="stylesheet" href="../css/selecao-style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    </head>
-<body>
+    <link rel="stylesheet" href="../css/selecao-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <div class="logo-container">
-            <img src="../img/logo.jfif" alt="Logo do App" class="logo-img">
-        </div>
+      <div class="logo-container">
+        <img src="../img/logo.jfif" alt="Logo do App" class="logo-img" />
+      </div>
     </header>
 
     <main>
-        <h1 class="main-title">Personalize sua experiência!</h1>
-        <p class="instruction-text">Escolha pelo menos 3 categorias de sua preferência para começar:</p>
+      <h1 class="main-title">Personalize sua experiência!</h1>
+      <p class="instruction-text">
+        Escolha pelo menos 3 categorias de sua preferência para começar:
+      </p>
 
-        <div class="card-container">
-            <div class="grid-selecao">
-                <div class="item-selecao" data-category="8">
-                    <img src="../img/icone_natureza.png" alt="Natureza">
-                    <div class="caption">Natureza</div>
-                </div>
-                <div class="item-selecao" data-category="2">
-                    <img src="../img/icone_cinema.png" alt="Cinema">
-                    <div class="caption">Cinema</div>
-                </div>
-                <div class="item-selecao" data-category="3">
-                    <img src="../img/icone_musica.png" alt="Música">
-                    <div class="caption">Música</div>
-                </div>
-                <div class="item-selecao" data-category="4">
-                    <img src="../img/icone_tecnologia.png" alt="Tecnologia">
-                    <div class="caption">Tecnologia</div>
-                </div>
-                <div class="item-selecao" data-category="5">
-                    <img src="../img/icone_gastronomia.png" alt="Gastronomia">
-                    <div class="caption">Gastronomia</div>
-                </div>
-                <div class="item-selecao" data-category="6">
-                    <img src="../img/icone_literatura.png" alt="Literatura">
-                    <div class="caption">Literatura</div>
-                </div>
-                <div class="item-selecao" data-category="7">
-                    <img src="../img/icone_arte.png" alt="Arte">
-                    <div class="caption">Arte</div>
-                </div>
-                <div class="item-selecao" data-category="1">
-                    <img src="../img/icone_esportes.png" alt="Esportes">
-                    <div class="caption">Esportes</div>
-                </div>
-            </div>
-
-            <form id="preferencesForm" method="POST" action="../php/SelecioneSuasPreferencias.php">
-                <input type="hidden" name="selectedCategories" id="selectedCategoriesInput">
-                <button id="next-step" type="submit" disabled>Avançar</button>
-            </form>
+      <div class="card-container">
+        <div class="grid-selecao">
+          <div class="item-selecao" data-category="1">
+            <img
+              src="../img/icone_esportes.png"
+              alt="Esportes e Fitness"
+            />
+            <div class="caption">Esportes e Fitness</div>
+          </div>
+          <div class="item-selecao" data-category="2">
+            <img src="../img/icone_historia.png" alt="História e Biografias" />
+            <div class="caption">História e Biografias</div>
+          </div>
+          <div class="item-selecao" data-category="3">
+            <img
+              src="../img/icone_ciencia.png"
+              alt="Ciência e Tecnologia"
+            />
+            <div class="caption">Ciência e Tecnologia</div>
+          </div>
+          <div class="item-selecao" data-category="4">
+            <img src="../img/icone_viajens.png" alt="Viagens e Culturas" />
+            <div class="caption">Viagens e Culturas</div>
+          </div>
+          <div class="item-selecao" data-category="5">
+            <img
+              src="../img/icone_gastronomia.png"
+              alt="Culinária e Gastronomia"
+            />
+            <div class="caption">Culinária e Gastronomia</div>
+          </div>
+          <div class="item-selecao" data-category="6">
+            <img
+              src="../img/icone_arte.png"
+              alt="Arte e Literatura"
+            />
+            <div class="caption">Arte e Literatura</div>
+          </div>
+          <div class="item-selecao" data-category="7">
+            <img
+              src="../img/icone_natureza.png"
+              alt="Natureza e Documentários"
+            />
+            <div class="caption">Natureza e Documentários</div>
+          </div>
+          <div class="item-selecao" data-category="8">
+            <img
+              src="../img/icone_educacao.png"
+              alt="Educação e Curiosidades"
+            />
+            <div class="caption">Educação e Curiosidades</div>
+          </div>
         </div>
+
+        <form
+          id="preferencesForm"
+          method="POST"
+          action="../php/SelecioneSuasPreferencias.php"
+        >
+          <input
+            type="hidden"
+            name="selectedCategories"
+            id="selectedCategoriesInput"
+          />
+          <button id="next-step" type="submit" disabled>Avançar</button>
+        </form>
+      </div>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Seleciona os elementos principais
-            const gridContainer = document.querySelector('.grid-selecao');
-            const selectedCategoriesInput = document.getElementById('selectedCategoriesInput');
-            const nextStepButton = document.getElementById('next-step');
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1. Seleciona os elementos principais
+        const gridContainer = document.querySelector(".grid-selecao");
+        const selectedCategoriesInput = document.getElementById(
+          "selectedCategoriesInput"
+        );
+        const nextStepButton = document.getElementById("next-step");
 
-            // Validação para garantir que os elementos existem
-            if (!gridContainer || !selectedCategoriesInput || !nextStepButton) {
-                console.error("Erro de inicialização: Elementos essenciais não foram encontrados no DOM.");
-                return;
-            }
+        // Validação para garantir que os elementos existem
+        if (!gridContainer || !selectedCategoriesInput || !nextStepButton) {
+          console.error(
+            "Erro de inicialização: Elementos essenciais não foram encontrados no DOM."
+          );
+          return;
+        }
 
-            // Esta função lê o estado atual da página e atualiza tudo
-            const updatePageStatus = () => {
-                const selectedItems = gridContainer.querySelectorAll('.item-selecao.selected');
-                const selectedValues = Array.from(selectedItems).map(item => item.dataset.category);
-                
-                selectedCategoriesInput.value = selectedValues.join(',');
-                nextStepButton.disabled = selectedValues.length < 3;
-            };
+        // Esta função lê o estado atual da página e atualiza tudo
+        const updatePageStatus = () => {
+          const selectedItems = gridContainer.querySelectorAll(
+            ".item-selecao.selected"
+          );
+          const selectedValues = Array.from(selectedItems).map(
+            (item) => item.dataset.category
+          );
 
-            // Adiciona um único evento de clique ao contêiner pai
-            gridContainer.addEventListener('click', (event) => {
-                const clickedItem = event.target.closest('.item-selecao');
-                if (!clickedItem) {
-                    return;
-                }
-                // Alterna a classe 'selected' no item clicado
-                clickedItem.classList.toggle('selected');
-                // Atualiza o estado da página
-                updatePageStatus();
-            });
-            
-            // Inicializa o estado da página (botão desabilitado)
-            updatePageStatus();
+          selectedCategoriesInput.value = selectedValues.join(",");
+          nextStepButton.disabled = selectedValues.length < 3;
+        };
 
-            // A verificação de sessão continua a mesma
-            fetch('../php/verificar_sessao.php')
-              .then(response => response.json())
-              .then(data => {
-                  if (data && data.sessao_ativa) {
-                      if (data.erros && data.erros.includes('idioma_nao_definido')) {
-                          alert("Você precisa definir um idioma antes de continuar.");
-                          window.location.href = '../html/Selecaoidioma.html';
-                      }
-                  } else if (data && !data.sessao_ativa) {
-                      alert("Você precisa estar logado para acessar esta página.");
-                      window.location.href = '../html/login.html';
-                  }
-              })
-              .catch(error => {
-                  console.error('Erro ao verificar sessão:', error);
-              });
+        // Adiciona um único evento de clique ao contêiner pai
+        gridContainer.addEventListener("click", (event) => {
+          const clickedItem = event.target.closest(".item-selecao");
+          if (!clickedItem) {
+            return;
+          }
+          // Alterna a classe 'selected' no item clicado
+          clickedItem.classList.toggle("selected");
+          // Atualiza o estado da página
+          updatePageStatus();
         });
+
+        // Inicializa o estado da página (botão desabilitado)
+        updatePageStatus();
+
+        // A verificação de sessão continua a mesma
+        fetch("../php/verificar_sessao.php")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data && data.sessao_ativa) {
+              if (data.erros && data.erros.includes("idioma_nao_definido")) {
+                alert("Você precisa definir um idioma antes de continuar.");
+                window.location.href = "../html/Selecaoidioma.html";
+              }
+            } else if (data && !data.sessao_ativa) {
+              alert("Você precisa estar logado para acessar esta página.");
+              window.location.href = "../html/login.html";
+            }
+          })
+          .catch((error) => {
+            console.error("Erro ao verificar sessão:", error);
+          });
+      });
     </script>
-    </body>
+  </body>
 </html>

@@ -1,112 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Configurações do Usuário</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/settings.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/settings.css" />
+  </head>
+  <body>
     <div class="main-wrapper">
-        <header class="page-header">
-            <h1 class="page-title">Suas Configurações</h1>
-            <p class="page-subtitle">Personalize sua experiência na plataforma.</p>
-        </header>
+      <header class="page-header">
+        <h1 class="page-title">Suas Configurações</h1>
+        <p class="page-subtitle">Personalize sua experiência na plataforma.</p>
+      </header>
 
-        <div class="container">
-            <h2 class="title">Preferências do Usuário</h2>
+      <div class="container">
+        <h2 class="title">Preferências do Usuário</h2>
 
-            <section class="section theme-section">
-                <h3 class="section-title">Tema da Interface</h3>
-                <div class="theme-switcher">
-                    <span>Tema Claro</span>
-                    <label class="switch">
-                        <input type="checkbox" id="themeToggle">
-                        <span class="slider round"></span>
-                    </label>
-                    <span>Tema Escuro</span>
-                </div>
-            </section>
+        <section class="section theme-section">
+          <h3 class="section-title">Tema da Interface</h3>
+          <div class="theme-switcher">
+            <span>Tema Claro</span>
+            <label class="switch">
+              <input type="checkbox" id="themeToggle" />
+              <span class="slider round"></span>
+            </label>
+            <span>Tema Escuro</span>
+          </div>
+        </section>
 
-            <section class="section language-section">
-                <h3 class="section-title">Escolha o Idioma</h3>
-                <div class="options-group">
-                    <label class="custom-radio">
-                        <input type="radio" name="language" value="4" />
-                        <span class="radio-checkmark"></span>
-                        Francês
-                    </label>
-                    <label class="custom-radio">
-                        <input type="radio" name="language" value="1" />
-                        <span class="radio-checkmark"></span>
-                        Inglês
-                    </label>
-                    <label class="custom-radio">
-                        <input type="radio" name="language" value="2" />
-                        <span class="radio-checkmark"></span>
-                        Espanhol
-                    </label>
-                    <label class="custom-radio">
-                        <input type="radio" name="language" value="3" />
-                        <span class="radio-checkmark"></span>
-                        Italiano
-                    </label>
-                </div>
-            </section>
+        <section class="section language-section">
+          <h3 class="section-title">Escolha o Idioma</h3>
+          <div class="options-group">
+            <label class="custom-radio">
+              <input type="radio" name="language" value="4" />
+              <span class="radio-checkmark"></span>
+              Francês
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="language" value="1" />
+              <span class="radio-checkmark"></span>
+              Inglês
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="language" value="2" />
+              <span class="radio-checkmark"></span>
+              Espanhol
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="language" value="3" />
+              <span class="radio-checkmark"></span>
+              Italiano
+            </label>
+          </div>
+        </section>
 
-            <section class="section interests-section">
-                <h3 class="section-title">Selecione Seus Interesses (mínimo 3)</h3>
-                <div class="options-group grid-options">
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="4" />
-                        <span class="checkbox-checkmark"></span>
-                        Tecnologia
-                    </label>
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="1" />
-                        <span class="checkbox-checkmark"></span>
-                        Esportes
-                    </label>
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="3" />
-                        <span class="checkbox-checkmark"></span>
-                        Música
-                    </label>
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="2" />
-                        <span class="checkbox-checkmark"></span>
-                        Cinema
-                    </label>
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="6" />
-                        <span class="checkbox-checkmark"></span>
-                        Literatura
-                    </label>
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="5" />
-                        <span class="checkbox-checkmark"></span>
-                        Gastronomia
-                    </label>
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="7" />
-                        <span class="checkbox-checkmark"></span>
-                        Arte
-                    </label>
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="interests" value="8" />
-                        <span class="checkbox-checkmark"></span>
-                        Natureza
-                    </label>
-                </div>
-            </section>
+        <section class="section interests-section">
+          <h3 class="section-title">Selecione Seus Interesses (mínimo 3)</h3>
+          <div class="options-group grid-options">
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="1" />
+              <span class="checkbox-checkmark"></span>
+              Esportes & Fitness
+            </label>
 
-            <button id="confirmButton" disabled>Salvar Preferências</button>
-        </div>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="2" />
+              <span class="checkbox-checkmark"></span>
+              História & Biografias
+            </label>
+
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="3" />
+              <span class="checkbox-checkmark"></span>
+              Ciência & Tecnologia
+            </label>
+
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="4" />
+              <span class="checkbox-checkmark"></span>
+              Viagens & Culturas
+            </label>
+
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="5" />
+              <span class="checkbox-checkmark"></span>
+              Culinária & Gastronomia
+            </label>
+
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="6" />
+              <span class="checkbox-checkmark"></span>
+              Arte & Literatura
+            </label>
+
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="7" />
+              <span class="checkbox-checkmark"></span>
+              Natureza & Documentários
+            </label>
+
+            <label class="custom-checkbox">
+              <input type="checkbox" name="interests" value="8" />
+              <span class="checkbox-checkmark"></span>
+              Educação & Curiosidades
+            </label>
+          </div>
+        </section>
+        <button id="confirmButton" disabled>Salvar Preferências</button>
+      </div>
     </div>
 
     <div id="notification" class="notification hidden"></div>
 
     <script src="../js/settings.js"></script>
-</body>
+  </body>
 </html>

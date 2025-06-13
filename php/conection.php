@@ -22,6 +22,6 @@ if (!$conn) {
 }
 
 // Chave da API centralizada
-$apiKey = "AIzaSyDjSYNA3VDKSPUikwbuJqt4-kUwhd-7vG8";
+$apiKey = "AIzaSyAbkcGrnfuFH03gvKSlezrU4GxkkwhGtrE";
 
 ?>
